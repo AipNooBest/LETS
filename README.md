@@ -1,22 +1,19 @@
-## LETS
+## LETS [![Code Health](https://landscape.io/github/osuripple/lets/master/landscape.svg?style=flat)](https://landscape.io/github/osuripple/lets/master)
 
 - Origin: https://zxq.co/ripple/lets
 - Mirror: https://github.com/osuripple/lets
 
 ## Latest Essential Tatoe Server
 This server handles every non real time client feature, so:
-- Ingame scoreboards with clan support
+- Ingame scoreboards
 - Score submission
 - Screenshots
 - Replays
-- Clan System
 - osu!direct, thanks to [cheesegull](https://github.com/osuripple/cheesegull)
 - Tillerino-like API (partially broken)
 - osu!standard and taiko pp calculation with [oppai-ng](https://github.com/francesco149/oppai-ng), made by Franc[e]sco
-- osu!standard relax pp calculation with [ainu-rx-calc](https://github.com/osuthailand/ainu-rx-calc), made by Franc[e]sco and edited by Hazuki-san
-- osu!mania pp calculation with `wifipiano2`, made by Nyo with reference code from [Tom94's osu-performance](https://github.com/ppy/osu-performance)
+- osu!mania pp calculation with a slightly edited version of [osu-tools](https://github.com/ppy/osu-tools), made by the osu! team
 - catch the beat pp calculation with [catch-the-pp](https://github.com/osuripple/catch-the-pp), made by Sunpy and cythonized by Nyo
-
 
 ## Requirements
 - Python 3.6
@@ -27,29 +24,22 @@ This server handles every non real time client feature, so:
 First of all, initialize and update the submodules
 ```
 $ git submodule init && git submodule update
-$ cd secret && git submodule init && git submodule update && cd ..
 ```
 afterwards, install the required dependencies with pip
 ```
-$ python3.6 -m pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 compile all `*.pyx` files to `*.so` or `*.dll` files using `setup.py` (distutils file).
 This compiles `catch-the-pp` as well.
 ```
-$ python3.6 setup.py build_ext --inplace
+$ python3 setup.py build_ext --inplace
 ```
 then, run LETS once to create the default config file and edit it
 ```
-$ python3.6 lets.py
+$ python3 lets.py
 $ nano config.ini
 ```
-finally, compile `oppai-ng` (inside pp/oppai-ng) and `ainu-rx-calc` (inside pp/oppai-rx) to make pp calculation working
-```
-$ cd ./pp/oppai-ng/ && chmod +x ./build && ./build && cd ./../../
-$ cd ./pp/oppai-rx/ && chmod +x ./build && ./build && cd ./../../
-```
-
-Did you know?: You can configure more stuff in common/config.json after you run LETS! Like ppboard or making Relax ranked!
+finally, compile oppai-ng (inside pp/oppai-ng) and osu-tools (inside pp/maniapp-osu-tools).
 
 ## tomejerry.py
 `tomejerry.py` is a tool that allows you to calculate pp for specific scores. It's extremely useful to do mass PP recalculations if you mess something up. It uses lets' config and packages, so make sure lets is installed and configured correctly before using it.

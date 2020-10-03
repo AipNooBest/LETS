@@ -52,7 +52,7 @@ class oppai:
 		self.score = None
 		self.acc = 0
 		self.mods = 0
-		self.combo = -1	#FC
+		self.combo = 0
 		self.misses = 0
 		self.stars = 0
 		self.tillerino = tillerino
@@ -63,10 +63,10 @@ class oppai:
 		# If passed, set everything from score object
 		if __score is not None:
 			self.score = __score
-			self.acc = self.score.accuracy * 100
+			self.acc = 100
 			self.mods = self.score.mods
 			self.combo = self.score.maxCombo
-			self.misses = self.score.cMiss
+			self.misses = 0
 			self.gameMode = self.score.gameMode
 		else:
 			# Otherwise, set acc and mods from params (tillerino)
@@ -133,7 +133,7 @@ class oppai:
 					command += " {acc:.2f}%".format(acc=self.acc)
 			if self.mods > 0:
 				command += " +{mods}".format(mods=scoreUtils.readableMods(modsFixed))
-			if self.combo >= 0:
+			if self.combo > 0:
 				command += " {combo}x".format(combo=self.combo)
 			if self.misses > 0:
 				command += " {misses}xm".format(misses=self.misses)
