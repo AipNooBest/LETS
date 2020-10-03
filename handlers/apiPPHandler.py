@@ -7,13 +7,13 @@ import tornado.web
 from raven.contrib.tornado import SentryMixin
 
 from objects import beatmap
-from common.constants import gameModes, mods
+from common.constants import gameModes
 from common.log import logUtils as log
 from common.web import requestsManager
 from constants import exceptions
 from helpers import osuapiHelper
 from objects import glob
-from pp import rippoppai, relaxoppai
+from pp import rippoppai
 from common.sentry import sentry
 
 MODULE_NAME = "api/pp"
@@ -63,7 +63,7 @@ class handler(requestsManager.asyncRequestHandler):
 				except ValueError:
 					raise exceptions.invalidArgumentsException(MODULE_NAME)
 			else:
-				accuracy = None
+				accuracy = -1.0
 
 			# Print message
 			log.info("Requested pp for beatmap {}".format(beatmapID))
@@ -71,8 +71,6 @@ class handler(requestsManager.asyncRequestHandler):
 			# Get beatmap md5 from osuapi
 			# TODO: Move this to beatmap object
 			osuapiData = osuapiHelper.osuApiRequest("get_beatmaps", "b={}".format(beatmapID))
-			if int(beatmapID) > 100000000:
-				raise exceptions.ppCustomBeatmap(MODULE_NAME)
 			if osuapiData is None or "file_md5" not in osuapiData or "beatmapset_id" not in osuapiData:
 				raise exceptions.invalidBeatmapException(MODULE_NAME)
 			beatmapMd5 = osuapiData["file_md5"]
@@ -96,44 +94,34 @@ class handler(requestsManager.asyncRequestHandler):
 					gameMode = gameModes.MANIA
 
 			# Calculate pp
-			if gameMode in (gameModes.STD, gameModes.TAIKO):
+			if gameMode == gameModes.STD or gameMode == gameModes.TAIKO:
 				# Std pp
-				if accuracy is None and modsEnum == 0:
-					# Generic acc/nomod
+				if accuracy < 0 and modsEnum == 0:
+					# Generic acc
 					# Get cached pp values
 					cachedPP = bmap.getCachedTillerinoPP()
-					if (modsEnum&mods.RELAX):
-						cachedPP = [0,0,0,0]
-
 					if cachedPP != [0,0,0,0]:
 						log.debug("Got cached pp.")
 						returnPP = cachedPP
 					else:
 						log.debug("Cached pp not found. Calculating pp with oppai...")
 						# Cached pp not found, calculate them
-						if gameMode == gameModes.STD and (modsEnum&mods.RELAX):
-							oppai = relaxoppai.oppai(bmap, mods=modsEnum, tillerino=True)
-						else:
-							oppai = rippoppai.oppai(bmap, mods=modsEnum, tillerino=True)
+						oppai = rippoppai.oppai(bmap, mods=modsEnum, tillerino=True)
 						returnPP = oppai.pp
 						bmap.starsStd = oppai.stars
 
-						if not (modsEnum&mods.RELAX):
-							# Cache values in DB
-							log.debug("Saving cached pp...")
-							if type(returnPP) == list and len(returnPP) == 4:
-								bmap.saveCachedTillerinoPP(returnPP)
+						# Cache values in DB
+						log.debug("Saving cached pp...")
+						if type(returnPP) == list and len(returnPP) == 4:
+							bmap.saveCachedTillerinoPP(returnPP)
 				else:
-					# Specific accuracy/mods, calculate pp
+					# Specific accuracy, calculate
 					# Create oppai instance
 					log.debug("Specific request ({}%/{}). Calculating pp with oppai...".format(accuracy, modsEnum))
-					if gameMode == gameModes.STD and (modsEnum&mods.RELAX):
-						oppai = relaxoppai.oppai(bmap, mods=modsEnum, tillerino=True)
-					else:
-						oppai = rippoppai.oppai(bmap, mods=modsEnum, tillerino=True)
+					oppai = rippoppai.oppai(bmap, mods=modsEnum, tillerino=True)
 					bmap.starsStd = oppai.stars
-					if accuracy is not None:
-						returnPP = calculatePPFromAcc(oppai, accuracy)
+					if accuracy > 0:
+						returnPP.append(calculatePPFromAcc(oppai, accuracy))
 					else:
 						returnPP = oppai.pp
 			else:
@@ -142,7 +130,7 @@ class handler(requestsManager.asyncRequestHandler):
 			# Data to return
 			data = {
 				"song_name": bmap.songName,
-				"pp": [x for x in returnPP] if type(returnPP) is list else returnPP,
+				"pp": [round(x, 2) for x in returnPP] if type(returnPP) == list else returnPP,
 				"length": bmap.hitLength,
 				"stars": bmap.starsStd,
 				"ar": bmap.AR,
@@ -156,9 +144,6 @@ class handler(requestsManager.asyncRequestHandler):
 			# Set error and message
 			statusCode = 400
 			data["message"] = "missing required arguments"
-		except exceptions.ppCustomBeatmap:
-			statusCode = 400
-			data["message"] = "Custom map does not supported pp calculating yet"
 		except exceptions.invalidBeatmapException:
 			statusCode = 400
 			data["message"] = "beatmap not found"

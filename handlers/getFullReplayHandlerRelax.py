@@ -7,8 +7,6 @@ from helpers import replayHelperRelax as replayHelper
 from common.sentry import sentry
 
 MODULE_NAME = "get_full_replay"
-
-
 class handler(requestsManager.asyncRequestHandler):
 	"""
 	Handler for /replay/
@@ -19,12 +17,10 @@ class handler(requestsManager.asyncRequestHandler):
 	def asyncGet(self, replayID):
 		try:
 			fullReplay = replayHelper.buildFullReplay(scoreID=replayID)
-			fileName = replayHelper.returnReplayFileName(scoreID=replayID)
-
 			self.write(fullReplay)
 			self.add_header("Content-type", "application/octet-stream")
 			self.set_header("Content-length", len(fullReplay))
 			self.set_header("Content-Description", "File Transfer")
-			self.set_header("Content-Disposition", "attachment; filename=\"{}.osr\"".format(fileName))
+			self.set_header("Content-Disposition", "attachment; filename=\"{}.osr\"".format(replayID))
 		except (exceptions.fileNotFoundException, exceptions.scoreNotFoundError):
 			self.write("Replay not found")

@@ -23,9 +23,6 @@ class handler(requestsManager.asyncRequestHandler):
 	@sentry.captureTornado
 	def asyncGet(self):
 		try:
-			# OOF
-			UsingRelax = False
-
 			# Get request ip
 			ip = self.getRequestIP()
 
@@ -51,10 +48,9 @@ class handler(requestsManager.asyncRequestHandler):
 			replayData = glob.db.fetch("SELECT scores.*, users.username AS uname FROM scores LEFT JOIN users ON scores.userid = users.id WHERE scores.id = %s", [replayID])
 			if replayData == None:
 				replayData = glob.db.fetch("SELECT scores_relax.*, users.username AS uname FROM scores_relax LEFT JOIN users ON scores_relax.userid = users.id WHERE scores_relax.id = %s", [replayID])
-				fileName = "{}_relax/replay_{}.osr".format(glob.conf.config["server"]["replayspath"], replayID)
-				UsingRelax = True
+				fileName = ".data/replays_relax/replay_{}.osr".format(replayID)
 			else:
-				fileName = "{}/replay_{}.osr".format(glob.conf.config["server"]["replayspath"], replayID)
+				fileName = ".data/replays/replay_{}.osr".format(replayID)
 
 			# Increment 'replays watched by others' if needed
 			if replayData is not None:
@@ -62,8 +58,7 @@ class handler(requestsManager.asyncRequestHandler):
 					userUtils.incrementReplaysWatched(replayData["userid"], replayData["play_mode"])
 
 			# Serve replay
-			log.info("[{}] Serving replay_{}.osr".format("RELAX" if UsingRelax else "VANILLA", replayID))
-
+			log.info("Serving replay_{}.osr".format(replayID))
 			if os.path.isfile(fileName):
 				with open(fileName, "rb") as f:
 					fileContent = f.read()

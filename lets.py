@@ -1,4 +1,4 @@
-# General imports
+# General imports jeff
 import os
 import sys
 from multiprocessing.pool import ThreadPool
@@ -10,13 +10,7 @@ import tornado.web
 from raven.contrib.tornado import AsyncSentryClient
 import redis
 
-import json
-import shutil
-from distutils.version import LooseVersion
-
-from constants import rankedStatuses
-
-from common.constants import bcolors, mods
+from common.constants import bcolors
 from common.db import dbConnector
 from common.ddog import datadogClient
 from common.log import logUtils as log
@@ -32,23 +26,19 @@ from handlers import downloadMapHandler
 from handlers import emptyHandler
 from handlers import getFullReplayHandler
 from handlers import getFullReplayHandlerRelax
+from handlers import getFullReplayHandlerAuto
 from handlers import getReplayHandler
 from handlers import getScoresHandler
 from handlers import getScreenshotHandler
-from handlers import getSeasonalHandler
 from handlers import loadTestHandler
 from handlers import mapsHandler
-from handlers import inGameRegistrationHandler
-from handlers import getFullErrorHandler
 from handlers import osuErrorHandler
 from handlers import osuSearchHandler
 from handlers import osuSearchSetHandler
-from handlers import osuSessionHandler
 from handlers import redirectHandler
 from handlers import submitModularHandler
 from handlers import uploadScreenshotHandler
 from handlers import commentHandler
-from handlers import lastFMHandler
 from helpers import config
 from helpers import consoleHelper
 from common import generalUtils
@@ -60,17 +50,14 @@ import secret.achievements.utils
 
 def make_app():
 	return tornado.web.Application([
-		(r"/users", inGameRegistrationHandler.handler),
 		(r"/web/bancho_connect.php", banchoConnectHandler.handler),
 		(r"/web/osu-osz2-getscores.php", getScoresHandler.handler),
 		(r"/web/osu-submit-modular.php", submitModularHandler.handler),
 		(r"/web/osu-submit-modular-selector.php", submitModularHandler.handler),
 		(r"/web/osu-getreplay.php", getReplayHandler.handler),
-		(r"/web/osu-getseasonal.php", getSeasonalHandler.handler),
 		(r"/web/osu-screenshot.php", uploadScreenshotHandler.handler),
 		(r"/web/osu-search.php", osuSearchHandler.handler),
 		(r"/web/osu-search-set.php", osuSearchSetHandler.handler),
-		(r"/web/osu-session.php", osuSessionHandler.handler),
 		(r"/web/check-updates.php", checkUpdatesHandler.handler),
 		(r"/web/osu-error.php", osuErrorHandler.handler),
 		(r"/web/osu-comment.php", commentHandler.handler),
@@ -84,10 +71,10 @@ def make_app():
 		(r"/s/(.*)", downloadMapHandler.handler),
 		(r"/web/replays/(.*)", getFullReplayHandler.handler),
 		(r"/web/replays_relax/(.*)", getFullReplayHandlerRelax.handler),
-		(r"/web/errorlogs/(.*)", getFullErrorHandler.handler),
+		(r"/web/replays_auto/(.*)", getFullReplayHandlerAuto.handler),
 
-		(r"/p/verify", redirectHandler.handler, dict(destination="https://osu.aipserver.ru/")),
-		(r"/u/(.*)", redirectHandler.handler, dict(destination="https://osu.aipserver.ru/u/{}")),
+		(r"/p/verify", redirectHandler.handler, dict(destination="https://yozora.pw/index.php?p=2")),
+		(r"/u/(.*)", redirectHandler.handler, dict(destination="https://yozora.pw/index.php?u={}")),
 
 		(r"/api/v1/status", apiStatusHandler.handler),
 		(r"/api/v1/pp", apiPPHandler.handler),
@@ -96,13 +83,11 @@ def make_app():
 		(r"/letsapi/v1/status", apiStatusHandler.handler),
 		(r"/letsapi/v1/pp", apiPPHandler.handler),
 		(r"/letsapi/v1/cacheBeatmap", apiCacheBeatmapHandler.handler),
-		(r"/web/lastfm.php", lastFMHandler.handler),
-		
+
 		# Not done yet
-		(r"/web/osu-get-beatmap-topic.php", emptyHandler.handler), # Beatmap Topic
-		(r"/web/osu-markasread.php", emptyHandler.handler), # Mark As Read
-		(r"/web/osu-addfavourite.php", emptyHandler.handler), # Add Favorite
-		(r"/web/osu-checktweets.php", emptyHandler.handler), # Do we need this?
+		(r"/web/lastfm.php", emptyHandler.handler),
+		(r"/web/osu-addfavourite.php", emptyHandler.handler),
+		(r"/web/osu-checktweets.php", emptyHandler.handler),
 
 		(r"/loadTest", loadTestHandler.handler),
 	], default_handler_class=defaultHandler.handler)
@@ -139,44 +124,17 @@ if __name__ == "__main__":
 		else:
 			consoleHelper.printDone()
 
-		# Read additional config file
-		consoleHelper.printNoNl("> Loading additional config file... ")
-		try:
-			if not os.path.isfile(glob.conf.config["custom"]["config"]):
-				consoleHelper.printWarning()
-				consoleHelper.printColored("[!] Missing config file at {}; A default one has been generated at this location.".format(glob.conf.config["custom"]["config"]), bcolors.YELLOW)
-				shutil.copy("common/default_config.json", glob.conf.config["custom"]["config"])
-
-			with open(glob.conf.config["custom"]["config"], "r") as f:
-				glob.conf.extra = json.load(f)
-
-			consoleHelper.printDone()
-		except:
-			consoleHelper.printWarning()
-			consoleHelper.printColored("[!] Unable to load custom config at {}".format(glob.conf.config["custom"]["config"]), bcolors.RED)
-			consoleHelper.printColored("[!] Make sure you have the latest osu!thailand common submodule!", bcolors.RED)
-			sys.exit()
-
-		# Check if running common module is usable
-		if glob.COMMON_VERSION == "Unknown":
-			consoleHelper.printWarning()
-			consoleHelper.printColored("[!] You do not seem to be using osu!thailand's common submodule... nothing will work...", bcolors.RED)
-			consoleHelper.printColored("[!] You can download or fork the submodule from {}https://github.com/osuthailand/common".format(bcolors.UNDERLINE), bcolors.RED)
-			sys.exit()
-		elif LooseVersion(glob.COMMON_VERSION_REQ) > LooseVersion(glob.COMMON_VERSION):
-			consoleHelper.printColored("[!] Your common submodule version is below the required version number for this version of lets.", bcolors.RED)
-			consoleHelper.printColored("[!] You are highly adviced to update your common submodule as stability may vary with outdated modules.", bcolors.RED)
-
 		# Create data/oppai maps folder if needed
 		consoleHelper.printNoNl("> Checking folders... ")
 		paths = [
 			".data",
+			".data/replays",
+			".data/replays_relax",
+			".data/screenshots",
 			".data/oppai",
 			".data/catch_the_pp",
-			glob.conf.config["server"]["replayspath"],
-			"{}_relax".format(glob.conf.config["server"]["replayspath"]),
-			glob.conf.config["server"]["beatmapspath"],
-			glob.conf.config["server"]["screenshotspath"]
+			".data/beatmaps",
+			".data/replays_auto"
 		]
 		for i in paths:
 			if not os.path.exists(i):
@@ -251,18 +209,6 @@ if __name__ == "__main__":
 		glob.redis.set("lets:achievements_version", glob.ACHIEVEMENTS_VERSION)
 		consoleHelper.printColored("Achievements version is {}".format(glob.ACHIEVEMENTS_VERSION), bcolors.YELLOW)
 
-		# Print disallowed mods into console (Used to also assign it into variable but has been moved elsewhere)
-		unranked_mods = [key for key, value in glob.conf.extra["common"]["rankable-mods"].items() if not value]
-		consoleHelper.printColored("Unranked mods: {}".format(", ".join(unranked_mods)), bcolors.YELLOW)
-		
-		# Print allowed beatmap rank statuses
-		allowed_beatmap_rank = [key for key, value in glob.conf.extra["lets"]["allowed-beatmap-rankstatus"].items() if value]
-		consoleHelper.printColored("Allowed beatmap rank statuses: {}".format(", ".join(allowed_beatmap_rank)), bcolors.YELLOW)
-
-		# Make array of bools to respective rank id's
-		glob.conf.extra["_allowed_beatmap_rank"] = [getattr(rankedStatuses, key) for key in allowed_beatmap_rank] # Store the allowed beatmap rank id's into glob
-
-
 		# Discord
 		if generalUtils.stringToBool(glob.conf.config["discord"]["enable"]):
 			glob.schiavo = schiavo.schiavo(glob.conf.config["discord"]["boturl"], "**lets**")
@@ -309,7 +255,7 @@ if __name__ == "__main__":
 
 		# Server start message and console output
 		consoleHelper.printColored("> L.E.T.S. is listening for clients on {}:{}...".format(glob.conf.config["server"]["host"], serverPort), bcolors.GREEN)
-		log.logMessage("Server started!", discord="bunker", stdout=False)
+		log.logMessage("Server started!", discord="bunker", of="info.txt", stdout=False)
 
 		# Start Tornado
 		glob.application.listen(serverPort, address=glob.conf.config["server"]["host"])

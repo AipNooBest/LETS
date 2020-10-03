@@ -10,7 +10,6 @@ from typing import Iterable, Optional, Union, List, Dict, Any
 import os
 import threading
 import time
-import json
 
 import MySQLdb.cursors
 import progressbar
@@ -559,12 +558,6 @@ def main():
     # Load config
     logging.info("Reading config file")
     glob.conf = config.config("config.ini")
-
-    # Read additional config file
-    logging.info("Reading additional config file")
-    with open(glob.conf.config["custom"]["config"], "r") as f:
-        logging.info("Add-on conf = {}".format(glob.conf.config["custom"]["config"]))
-        glob.conf.extra = json.load(f)
 
     # Get workers from arguments if set
     workers_number = MAX_WORKERS // 2

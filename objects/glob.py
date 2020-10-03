@@ -1,7 +1,5 @@
 import personalBestCache
-import personalBestCacheRX
 import userStatsCache
-import userStatsCacheRX
 from common.ddog import datadogClient
 from common.files import fileBuffer, fileLocks
 from common.web import schiavo
@@ -21,24 +19,15 @@ application = None
 pool = None
 pascoa = {}
 
+busyThreads = 0
 debug = False
 sentry = False
 
 # Cache and objects
 fLocks = fileLocks.fileLocks()
 userStatsCache = userStatsCache.userStatsCache()
-userStatsCacheRX = userStatsCacheRX.userStatsCacheRX()
 personalBestCache = personalBestCache.personalBestCache()
-personalBestCacheRX = personalBestCacheRX.personalBestCacheRX()
 fileBuffers = fileBuffer.buffersList()
 dog = datadogClient.datadogClient()
 schiavo = schiavo.schiavo()
 achievementClasses = {}
-
-# Additional modifications
-COMMON_VERSION_REQ = "1.2.1"
-try:
-	with open("common/version") as f:
-		COMMON_VERSION = f.read().strip()
-except:
-	COMMON_VERSION = "Unknown"
