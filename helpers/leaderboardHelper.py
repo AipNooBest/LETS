@@ -29,7 +29,7 @@ def getRankInfo(userID, gameMode):
 	else:
 		position = 0
 
-	data["currentRank"] = position
+	data["currentRank"] = position + 1
 	return data
 
 def update(userID, newScore, gameMode):

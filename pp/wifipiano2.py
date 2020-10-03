@@ -1,5 +1,6 @@
 """
 Wifipiano 2
+
 This file has been written taking by reference code from
 osu-performance (https://github.com/ppy/osu-performance)
 by Tom94, licensed under the GNU AGPL 3 License.
@@ -7,6 +8,7 @@ by Tom94, licensed under the GNU AGPL 3 License.
 from common.constants import mods
 from common.log import logUtils as log
 from constants import exceptions
+from helpers import mapsHelper
 
 
 class piano:
@@ -24,6 +26,11 @@ class piano:
 			if stars == 0:
 				# This beatmap can't be converted to mania
 				raise exceptions.invalidBeatmapException()
+
+			# Cache beatmap for cono
+			mapFile = mapsHelper.cachedMapPath(self.beatmap.beatmapID)
+			mapsHelper.cacheMap(mapFile, self.beatmap)
+
 			od = self.beatmap.OD
 			objects = self.score.c50+self.score.c100+self.score.c300+self.score.cKatu+self.score.cGeki+self.score.cMiss
 
@@ -40,9 +47,8 @@ class piano:
 			# Doubles score if EZ/HT
 			if scoreMods & mods.EASY != 0:
 				scoreMultiplier *= 0.50
-				
-			if scoreMods & mods.HALFTIME != 0:
-				scoreMultiplier *= 0.50
+			#if scoreMods & mods.HALFTIME != 0:
+			#	scoreMultiplier *= 0.50
 
 			# Calculate strain PP
 			if scoreMultiplier <= 0:
@@ -99,10 +105,6 @@ class piano:
 			if scoreMods & mods.SPUNOUT != 0:
 				multiplier *= 0.95
 			if scoreMods & mods.EASY != 0:
-				multiplier *= 0.50
-			if scoreMods & mods.DOUBLETIME != 0:
-				multiplier *= 2.45
-			if scoreMods & mods.HALFTIME != 0:
 				multiplier *= 0.50
 			pp = pow(pow(strainPP, 1.1) + pow(accPP, 1.1), 1.0 / 1.1) * multiplier
 			log.debug("[WIFIPIANO2] Calculated PP: {}".format(pp))

@@ -12,4 +12,3 @@ common_refractor
 *.so
 *.log
 .pyenv
-tomejerry_*

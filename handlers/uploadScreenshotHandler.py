@@ -1,7 +1,7 @@
 import os
 import sys
 import traceback
-import time
+
 import tornado.gen
 import tornado.web
 from raven.contrib.tornado import SentryMixin
@@ -54,20 +54,18 @@ class handler(requestsManager.asyncRequestHandler):
 			screenshotID = ""
 			while not found:
 				screenshotID = generalUtils.randomString(8)
-				if not os.path.isfile(".data/screenshots/{}.png".format(screenshotID)):
+				if not os.path.isfile("{}/{}.jpg".format(glob.conf.config["server"]["screenshotspath"], screenshotID)):
 					found = True
-					glob.db.execute("INSERT INTO screenshots (userid, ssid, sstime) VALUES (%s, %s, %s)", [userID, screenshotID, int(time.time())]);
 
-
-			# Write screenshot file to .data folder
-			with open(".data/screenshots/{}.png".format(screenshotID), "wb") as f:
+			# Write screenshot file to screenshots folder
+			with open("{}/{}.jpg".format(glob.conf.config["server"]["screenshotspath"], screenshotID), "wb") as f:
 				f.write(self.request.files["ss"][0]["body"])
 
 			# Output
 			log.info("New screenshot ({})".format(screenshotID))
 
 			# Return screenshot link
-			self.write("{}/ss/{}.png".format(glob.conf.config["server"]["serverurl"], screenshotID))
+			self.write("{}/ss/{}.jpg".format(glob.conf.config["server"]["serverurl"], screenshotID))
 		except exceptions.need2FAException:
 			pass
 		except exceptions.invalidArgumentsException:

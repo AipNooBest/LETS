@@ -5,11 +5,7 @@ import tornado.web
 from objects import beatmap
 from objects import scoreboard
 from objects import scoreboardRelax
-from objects import scoreboardRelaxScore
-from objects import scoreboardAuto
-from objects import scoreboardAutoScore
 from common.constants import privileges
-from constants import rankedStatuses
 from common.log import logUtils as log
 from common.ripple import userUtils
 from common.web import requestsManager
@@ -39,8 +35,8 @@ class handler(requestsManager.asyncRequestHandler):
 
 			# Check required arguments
 			if not requestsManager.checkArguments(
-				self.request.arguments,
-				["c", "f", "i", "m", "us", "v", "vv", "mods"]
+					self.request.arguments,
+					["c", "f", "i", "m", "us", "v", "vv", "mods"]
 			):
 				raise exceptions.invalidArgumentsException(MODULE_NAME)
 
@@ -95,33 +91,15 @@ class handler(requestsManager.asyncRequestHandler):
 			log.info("Requested beatmap {} ({})".format(fileNameShort, md5))
 
 			# Create beatmap object and set its data
-			bmap = beatmap.beatmap(md5, beatmapSetID, gameMode)
-			b = beatmap.beatmap(md5, 0)
+			bmap = beatmap.beatmap(md5, beatmapSetID, gameMode, fileName=fileName)
+			bmap.saveFileName(fileName)
 
-			if b.rankedStatus == rankedStatuses.PENDING:
-				if bool(mods & 128):
-					sboard = scoreboardRelaxScore.scoreboardRelax(
-					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
-					)
-				elif bool(mods & 8192):
-					sboard = scoreboardAutoScore.scoreboardAuto(
-					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
-					)
-				else:
-					sboard = scoreboard.scoreboard(
-					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
-					)
-			else:
-				# Create leaderboard object, link it to bmap and get all scores
-				if bool(mods & 128):
+			# Create leaderboard object, link it to bmap and get all scores
+			if bool(mods & 128):
 					sboard = scoreboardRelax.scoreboardRelax(
 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
 					)
-				elif bool(mods & 8192):
-					sboard = scoreboardAuto.scoreboardAuto(
-					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
-					)
-				else:
+			else:
 					sboard = scoreboard.scoreboard(
 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
 					)
@@ -131,7 +109,6 @@ class handler(requestsManager.asyncRequestHandler):
 			data += bmap.getData(sboard.totalScores, scoreboardVersion)
 			data += sboard.getScoresData()
 			self.write(data)
-
 
 			# Datadog stats
 			glob.dog.increment(glob.DATADOG_PREFIX+".served_leaderboards")

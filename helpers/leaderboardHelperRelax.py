@@ -6,6 +6,7 @@ from common.ripple import userUtils
 def getRankInfo(userID, gameMode):
 	"""
 	Get userID's current rank, user above us and pp/score difference
+
 	:param userID: user
 	:param gameMode: gameMode number
 	:return: {"nextUsername": "", "difference": 0, "currentRank": 0}
@@ -35,6 +36,7 @@ def update(userID, newScore, gameMode):
 	"""
 	Update gamemode's leaderboard.
 	Doesn't do anything if userID is banned/restricted.
+
 	:param userID: user
 	:param newScore: new score or pp
 	:param gameMode: gameMode number
@@ -49,6 +51,7 @@ def updateCountry(userID, newScore, gameMode):
 	"""
 	Update gamemode's country leaderboard.
 	Doesn't do anything if userID is banned/restricted.
+
 	:param userID: user, country is determined by the user
 	:param newScore: new score or pp
 	:param gameMode: gameMode number

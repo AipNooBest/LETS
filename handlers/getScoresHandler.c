@@ -1093,7 +1093,6 @@ int __pyx_module_is_main_handlers__getScoresHandler = 0;
 
 /* Implementation of 'handlers.getScoresHandler' */
 static const char __pyx_k_a[] = "a";
-static const char __pyx_k_b[] = "b";
 static const char __pyx_k_c[] = "c";
 static const char __pyx_k_f[] = "f";
 static const char __pyx_k_i[] = "i";
@@ -1133,7 +1132,6 @@ static const char __pyx_k_sboard[] = "sboard";
 static const char __pyx_k_sentry[] = "sentry";
 static const char __pyx_k_setAqn[] = "setAqn";
 static const char __pyx_k_userID[] = "userID";
-static const char __pyx_k_PENDING[] = "PENDING";
 static const char __pyx_k_beatmap[] = "beatmap";
 static const char __pyx_k_country[] = "country";
 static const char __pyx_k_friends[] = "friends";
@@ -1180,7 +1178,7 @@ static const char __pyx_k_asynchronous[] = "asynchronous";
 static const char __pyx_k_beatmapSetID[] = "beatmapSetID";
 static const char __pyx_k_getRequestIP[] = "getRequestIP";
 static const char __pyx_k_get_argument[] = "get_argument";
-static const char __pyx_k_rankedStatus[] = "rankedStatus";
+static const char __pyx_k_saveFileName[] = "saveFileName";
 static const char __pyx_k_common_ripple[] = "common.ripple";
 static const char __pyx_k_common_sentry[] = "common.sentry";
 static const char __pyx_k_fileNameShort[] = "fileNameShort";
@@ -1190,8 +1188,6 @@ static const char __pyx_k_DATADOG_PREFIX[] = "DATADOG_PREFIX";
 static const char __pyx_k_captureTornado[] = "captureTornado";
 static const char __pyx_k_checkArguments[] = "checkArguments";
 static const char __pyx_k_printArguments[] = "printArguments";
-static const char __pyx_k_rankedStatuses[] = "rankedStatuses";
-static const char __pyx_k_scoreboardAuto[] = "scoreboardAuto";
 static const char __pyx_k_scoreboardType[] = "scoreboardType";
 static const char __pyx_k_requestsManager[] = "requestsManager";
 static const char __pyx_k_scoreboardRelax[] = "scoreboardRelax";
@@ -1202,11 +1198,9 @@ static const char __pyx_k_Requested_beatmap[] = "Requested beatmap {} ({})";
 static const char __pyx_k_scoreboardVersion[] = "scoreboardVersion";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_asyncRequestHandler[] = "asyncRequestHandler";
-static const char __pyx_k_scoreboardAutoScore[] = "scoreboardAutoScore";
 static const char __pyx_k_served_leaderboards[] = ".served_leaderboards";
 static const char __pyx_k_userBannedException[] = "userBannedException";
 static const char __pyx_k_loginFailedException[] = "loginFailedException";
-static const char __pyx_k_scoreboardRelaxScore[] = "scoreboardRelaxScore";
 static const char __pyx_k_Found_AQN_folder_on_user[] = "Found AQN folder on user {} ({})";
 static const char __pyx_k_handlers_getScoresHandler[] = "handlers.getScoresHandler";
 static const char __pyx_k_invalidArgumentsException[] = "invalidArgumentsException";
@@ -1216,7 +1210,6 @@ static PyObject *__pyx_n_s_DATADOG_PREFIX;
 static PyObject *__pyx_kp_s_Found_AQN_folder_on_user;
 static PyObject *__pyx_kp_s_Handler_for_web_osu_osz2_getsco;
 static PyObject *__pyx_n_s_MODULE_NAME;
-static PyObject *__pyx_n_s_PENDING;
 static PyObject *__pyx_kp_s_Requested_beatmap;
 static PyObject *__pyx_n_s_USER_DONOR;
 static PyObject *__pyx_kp_s__13;
@@ -1226,7 +1219,6 @@ static PyObject *__pyx_n_s_arguments;
 static PyObject *__pyx_n_s_asyncGet;
 static PyObject *__pyx_n_s_asyncRequestHandler;
 static PyObject *__pyx_n_s_asynchronous;
-static PyObject *__pyx_n_s_b;
 static PyObject *__pyx_n_s_beatmap;
 static PyObject *__pyx_n_s_beatmapSetID;
 static PyObject *__pyx_n_s_bmap;
@@ -1300,16 +1292,12 @@ static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_printArguments;
 static PyObject *__pyx_n_s_privileges;
 static PyObject *__pyx_n_s_qualname;
-static PyObject *__pyx_n_s_rankedStatus;
-static PyObject *__pyx_n_s_rankedStatuses;
 static PyObject *__pyx_n_s_request;
 static PyObject *__pyx_n_s_requestsManager;
+static PyObject *__pyx_n_s_saveFileName;
 static PyObject *__pyx_n_s_sboard;
 static PyObject *__pyx_n_s_scoreboard;
-static PyObject *__pyx_n_s_scoreboardAuto;
-static PyObject *__pyx_n_s_scoreboardAutoScore;
 static PyObject *__pyx_n_s_scoreboardRelax;
-static PyObject *__pyx_n_s_scoreboardRelaxScore;
 static PyObject *__pyx_n_s_scoreboardType;
 static PyObject *__pyx_n_s_scoreboardVersion;
 static PyObject *__pyx_n_s_self;
@@ -1340,7 +1328,6 @@ static PyObject *__pyx_int_3;
 static PyObject *__pyx_int_4;
 static PyObject *__pyx_int_32;
 static PyObject *__pyx_int_128;
-static PyObject *__pyx_int_8192;
 static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_int_neg_4;
 static PyObject *__pyx_tuple_;
@@ -1363,7 +1350,7 @@ static PyObject *__pyx_tuple__19;
 static PyObject *__pyx_tuple__20;
 static PyObject *__pyx_codeobj__21;
 
-/* "handlers/getScoresHandler.pyx":29
+/* "handlers/getScoresHandler.pyx":25
  * 	@tornado.gen.engine
  * 	@sentry.captureTornado
  * 	def asyncGet(self):             # <<<<<<<<<<<<<<
@@ -1403,7 +1390,6 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
   PyObject *__pyx_v_mods = NULL;
   PyObject *__pyx_v_fileNameShort = NULL;
   PyObject *__pyx_v_bmap = NULL;
-  PyObject *__pyx_v_b = NULL;
   PyObject *__pyx_v_sboard = NULL;
   PyObject *__pyx_v_data = NULL;
   PyObject *__pyx_r = NULL;
@@ -1424,7 +1410,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
   Py_ssize_t __pyx_t_14;
   __Pyx_RefNannySetupContext("asyncGet", 0);
 
-  /* "handlers/getScoresHandler.pyx":30
+  /* "handlers/getScoresHandler.pyx":26
  * 	@sentry.captureTornado
  * 	def asyncGet(self):
  * 		try:             # <<<<<<<<<<<<<<
@@ -1440,14 +1426,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "handlers/getScoresHandler.pyx":32
+      /* "handlers/getScoresHandler.pyx":28
  * 		try:
  * 			# Get request ip
  * 			ip = self.getRequestIP()             # <<<<<<<<<<<<<<
  * 
  * 			# Print arguments
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getRequestIP); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_getRequestIP); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -1460,42 +1446,42 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         }
       }
       if (__pyx_t_6) {
-        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L3_error)
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       } else {
-        __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L3_error)
       }
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_ip = __pyx_t_4;
       __pyx_t_4 = 0;
 
-      /* "handlers/getScoresHandler.pyx":35
+      /* "handlers/getScoresHandler.pyx":31
  * 
  * 			# Print arguments
  * 			if glob.debug:             # <<<<<<<<<<<<<<
  * 				requestsManager.printArguments(self)
  * 
  */
-      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_glob); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_glob); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_debug); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 35, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_debug); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 35, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 31, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_7) {
 
-        /* "handlers/getScoresHandler.pyx":36
+        /* "handlers/getScoresHandler.pyx":32
  * 			# Print arguments
  * 			if glob.debug:
  * 				requestsManager.printArguments(self)             # <<<<<<<<<<<<<<
  * 
  * 			# TODO: Maintenance check
  */
-        __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_requestsManager); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_requestsManager); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_printArguments); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_printArguments); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_4 = NULL;
@@ -1509,13 +1495,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           }
         }
         if (!__pyx_t_4) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_self); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_self); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[2] = {__pyx_t_4, __pyx_v_self};
-            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_5);
           } else
@@ -1523,19 +1509,19 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[2] = {__pyx_t_4, __pyx_v_self};
-            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_5);
           } else
           #endif
           {
-            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 36, __pyx_L3_error)
+            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 32, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4); __pyx_t_4 = NULL;
             __Pyx_INCREF(__pyx_v_self);
             __Pyx_GIVEREF(__pyx_v_self);
             PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_v_self);
-            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           }
@@ -1543,7 +1529,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "handlers/getScoresHandler.pyx":35
+        /* "handlers/getScoresHandler.pyx":31
  * 
  * 			# Print arguments
  * 			if glob.debug:             # <<<<<<<<<<<<<<
@@ -1552,40 +1538,40 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       }
 
-      /* "handlers/getScoresHandler.pyx":41
+      /* "handlers/getScoresHandler.pyx":37
  * 
  * 			# Check required arguments
  * 			if not requestsManager.checkArguments(             # <<<<<<<<<<<<<<
- * 				self.request.arguments,
- * 				["c", "f", "i", "m", "us", "v", "vv", "mods"]
+ * 					self.request.arguments,
+ * 					["c", "f", "i", "m", "us", "v", "vv", "mods"]
  */
-      __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_requestsManager); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_requestsManager); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 37, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_checkArguments); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L3_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_checkArguments); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 37, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "handlers/getScoresHandler.pyx":42
+      /* "handlers/getScoresHandler.pyx":38
  * 			# Check required arguments
  * 			if not requestsManager.checkArguments(
- * 				self.request.arguments,             # <<<<<<<<<<<<<<
- * 				["c", "f", "i", "m", "us", "v", "vv", "mods"]
+ * 					self.request.arguments,             # <<<<<<<<<<<<<<
+ * 					["c", "f", "i", "m", "us", "v", "vv", "mods"]
  * 			):
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_request); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_request); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 38, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_arguments); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_arguments); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "handlers/getScoresHandler.pyx":43
+      /* "handlers/getScoresHandler.pyx":39
  * 			if not requestsManager.checkArguments(
- * 				self.request.arguments,
- * 				["c", "f", "i", "m", "us", "v", "vv", "mods"]             # <<<<<<<<<<<<<<
+ * 					self.request.arguments,
+ * 					["c", "f", "i", "m", "us", "v", "vv", "mods"]             # <<<<<<<<<<<<<<
  * 			):
  * 				raise exceptions.invalidArgumentsException(MODULE_NAME)
  */
-      __pyx_t_6 = PyList_New(8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 43, __pyx_L3_error)
+      __pyx_t_6 = PyList_New(8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_INCREF(__pyx_n_s_c);
       __Pyx_GIVEREF(__pyx_n_s_c);
@@ -1626,7 +1612,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_4, __pyx_t_6};
-        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -1636,7 +1622,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_4, __pyx_t_6};
-        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -1644,7 +1630,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       } else
       #endif
       {
-        __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 41, __pyx_L3_error)
+        __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 37, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_11);
         if (__pyx_t_9) {
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -1655,37 +1641,37 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_t_6);
         __pyx_t_4 = 0;
         __pyx_t_6 = 0;
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       }
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "handlers/getScoresHandler.pyx":41
+      /* "handlers/getScoresHandler.pyx":37
  * 
  * 			# Check required arguments
  * 			if not requestsManager.checkArguments(             # <<<<<<<<<<<<<<
- * 				self.request.arguments,
- * 				["c", "f", "i", "m", "us", "v", "vv", "mods"]
+ * 					self.request.arguments,
+ * 					["c", "f", "i", "m", "us", "v", "vv", "mods"]
  */
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 41, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 37, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_12 = ((!__pyx_t_7) != 0);
       if (__pyx_t_12) {
 
-        /* "handlers/getScoresHandler.pyx":45
- * 				["c", "f", "i", "m", "us", "v", "vv", "mods"]
+        /* "handlers/getScoresHandler.pyx":41
+ * 					["c", "f", "i", "m", "us", "v", "vv", "mods"]
  * 			):
  * 				raise exceptions.invalidArgumentsException(MODULE_NAME)             # <<<<<<<<<<<<<<
  * 
  * 			# GET parameters
  */
-        __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 45, __pyx_L3_error)
+        __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_invalidArgumentsException); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 45, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_invalidArgumentsException); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 41, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 45, __pyx_L3_error)
+        __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_8);
         __pyx_t_6 = NULL;
         if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_11))) {
@@ -1698,14 +1684,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           }
         }
         if (!__pyx_t_6) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_11)) {
             PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_8};
-            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -1714,20 +1700,20 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
             PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_8};
-            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           } else
           #endif
           {
-            __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L3_error)
+            __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_4);
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
             __Pyx_GIVEREF(__pyx_t_8);
             PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_t_8);
             __pyx_t_8 = 0;
-            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           }
@@ -1735,153 +1721,153 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_Raise(__pyx_t_5, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __PYX_ERR(0, 45, __pyx_L3_error)
+        __PYX_ERR(0, 41, __pyx_L3_error)
 
-        /* "handlers/getScoresHandler.pyx":41
+        /* "handlers/getScoresHandler.pyx":37
  * 
  * 			# Check required arguments
  * 			if not requestsManager.checkArguments(             # <<<<<<<<<<<<<<
- * 				self.request.arguments,
- * 				["c", "f", "i", "m", "us", "v", "vv", "mods"]
+ * 					self.request.arguments,
+ * 					["c", "f", "i", "m", "us", "v", "vv", "mods"]
  */
       }
 
-      /* "handlers/getScoresHandler.pyx":48
+      /* "handlers/getScoresHandler.pyx":44
  * 
  * 			# GET parameters
  * 			md5 = self.get_argument("c")             # <<<<<<<<<<<<<<
  * 			fileName = self.get_argument("f")
  * 			beatmapSetID = self.get_argument("i")
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 44, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 48, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 44, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_md5 = __pyx_t_11;
       __pyx_t_11 = 0;
 
-      /* "handlers/getScoresHandler.pyx":49
+      /* "handlers/getScoresHandler.pyx":45
  * 			# GET parameters
  * 			md5 = self.get_argument("c")
  * 			fileName = self.get_argument("f")             # <<<<<<<<<<<<<<
  * 			beatmapSetID = self.get_argument("i")
  * 			gameMode = self.get_argument("m")
  */
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 49, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 45, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_v_fileName = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":50
+      /* "handlers/getScoresHandler.pyx":46
  * 			md5 = self.get_argument("c")
  * 			fileName = self.get_argument("f")
  * 			beatmapSetID = self.get_argument("i")             # <<<<<<<<<<<<<<
  * 			gameMode = self.get_argument("m")
  * 			username = self.get_argument("us")
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 50, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 46, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_beatmapSetID = __pyx_t_11;
       __pyx_t_11 = 0;
 
-      /* "handlers/getScoresHandler.pyx":51
+      /* "handlers/getScoresHandler.pyx":47
  * 			fileName = self.get_argument("f")
  * 			beatmapSetID = self.get_argument("i")
  * 			gameMode = self.get_argument("m")             # <<<<<<<<<<<<<<
  * 			username = self.get_argument("us")
  * 			password = self.get_argument("ha")
  */
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 51, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 47, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 47, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_v_gameMode = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":52
+      /* "handlers/getScoresHandler.pyx":48
  * 			beatmapSetID = self.get_argument("i")
  * 			gameMode = self.get_argument("m")
  * 			username = self.get_argument("us")             # <<<<<<<<<<<<<<
  * 			password = self.get_argument("ha")
  * 			scoreboardType = int(self.get_argument("v"))
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 52, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 48, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_username = __pyx_t_11;
       __pyx_t_11 = 0;
 
-      /* "handlers/getScoresHandler.pyx":53
+      /* "handlers/getScoresHandler.pyx":49
  * 			gameMode = self.get_argument("m")
  * 			username = self.get_argument("us")
  * 			password = self.get_argument("ha")             # <<<<<<<<<<<<<<
  * 			scoreboardType = int(self.get_argument("v"))
  * 			scoreboardVersion = int(self.get_argument("vv"))
  */
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 53, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 49, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_v_password = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":54
+      /* "handlers/getScoresHandler.pyx":50
  * 			username = self.get_argument("us")
  * 			password = self.get_argument("ha")
  * 			scoreboardType = int(self.get_argument("v"))             # <<<<<<<<<<<<<<
  * 			scoreboardVersion = int(self.get_argument("vv"))
  * 
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 54, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 50, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_v_scoreboardType = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":55
+      /* "handlers/getScoresHandler.pyx":51
  * 			password = self.get_argument("ha")
  * 			scoreboardType = int(self.get_argument("v"))
  * 			scoreboardVersion = int(self.get_argument("vv"))             # <<<<<<<<<<<<<<
  * 
  * 			# Login and ban check
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 55, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 51, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_v_scoreboardVersion = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":58
+      /* "handlers/getScoresHandler.pyx":54
  * 
  * 			# Login and ban check
  * 			userID = userUtils.getID(username)             # <<<<<<<<<<<<<<
  * 			if userID == 0:
  * 				raise exceptions.loginFailedException(MODULE_NAME, userID)
  */
-      __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 58, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 54, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_getID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 58, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_getID); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_t_11 = NULL;
@@ -1895,13 +1881,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         }
       }
       if (!__pyx_t_11) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_username); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_username); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
       } else {
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_v_username};
-          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else
@@ -1909,19 +1895,19 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_v_username};
-          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 58, __pyx_L3_error)
+          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_11); __pyx_t_11 = NULL;
           __Pyx_INCREF(__pyx_v_username);
           __Pyx_GIVEREF(__pyx_v_username);
           PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_v_username);
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -1930,32 +1916,32 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       __pyx_v_userID = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":59
+      /* "handlers/getScoresHandler.pyx":55
  * 			# Login and ban check
  * 			userID = userUtils.getID(username)
  * 			if userID == 0:             # <<<<<<<<<<<<<<
  * 				raise exceptions.loginFailedException(MODULE_NAME, userID)
  * 			if not userUtils.checkLogin(userID, password, ip):
  */
-      __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_v_userID, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_v_userID, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 59, __pyx_L3_error)
+      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 55, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_12) {
 
-        /* "handlers/getScoresHandler.pyx":60
+        /* "handlers/getScoresHandler.pyx":56
  * 			userID = userUtils.getID(username)
  * 			if userID == 0:
  * 				raise exceptions.loginFailedException(MODULE_NAME, userID)             # <<<<<<<<<<<<<<
  * 			if not userUtils.checkLogin(userID, password, ip):
  * 				raise exceptions.loginFailedException(MODULE_NAME, username)
  */
-        __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_loginFailedException); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 60, __pyx_L3_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_loginFailedException); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 56, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_11 = NULL;
         __pyx_t_10 = 0;
@@ -1972,7 +1958,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_8)) {
           PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_t_4, __pyx_v_userID};
-          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -1981,14 +1967,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
           PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_t_4, __pyx_v_userID};
-          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         } else
         #endif
         {
-          __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L3_error)
+          __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_6);
           if (__pyx_t_11) {
             __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -1999,16 +1985,16 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           __Pyx_GIVEREF(__pyx_v_userID);
           PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_v_userID);
           __pyx_t_4 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         }
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_Raise(__pyx_t_5, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __PYX_ERR(0, 60, __pyx_L3_error)
+        __PYX_ERR(0, 56, __pyx_L3_error)
 
-        /* "handlers/getScoresHandler.pyx":59
+        /* "handlers/getScoresHandler.pyx":55
  * 			# Login and ban check
  * 			userID = userUtils.getID(username)
  * 			if userID == 0:             # <<<<<<<<<<<<<<
@@ -2017,16 +2003,16 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       }
 
-      /* "handlers/getScoresHandler.pyx":61
+      /* "handlers/getScoresHandler.pyx":57
  * 			if userID == 0:
  * 				raise exceptions.loginFailedException(MODULE_NAME, userID)
  * 			if not userUtils.checkLogin(userID, password, ip):             # <<<<<<<<<<<<<<
  * 				raise exceptions.loginFailedException(MODULE_NAME, username)
  * 			if userUtils.check2FA(userID, ip):
  */
-      __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L3_error)
+      __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 57, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_checkLogin); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_checkLogin); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_8 = NULL;
@@ -2044,7 +2030,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_userID, __pyx_v_password, __pyx_v_ip};
-        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
@@ -2052,13 +2038,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_userID, __pyx_v_password, __pyx_v_ip};
-        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
       #endif
       {
-        __pyx_t_4 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L3_error)
+        __pyx_t_4 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
         if (__pyx_t_8) {
           __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -2072,29 +2058,29 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         __Pyx_INCREF(__pyx_v_ip);
         __Pyx_GIVEREF(__pyx_v_ip);
         PyTuple_SET_ITEM(__pyx_t_4, 2+__pyx_t_10, __pyx_v_ip);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 61, __pyx_L3_error)
+      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 57, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_7 = ((!__pyx_t_12) != 0);
       if (__pyx_t_7) {
 
-        /* "handlers/getScoresHandler.pyx":62
+        /* "handlers/getScoresHandler.pyx":58
  * 				raise exceptions.loginFailedException(MODULE_NAME, userID)
  * 			if not userUtils.checkLogin(userID, password, ip):
  * 				raise exceptions.loginFailedException(MODULE_NAME, username)             # <<<<<<<<<<<<<<
  * 			if userUtils.check2FA(userID, ip):
  * 				raise exceptions.need2FAException(MODULE_NAME, username, ip)
  */
-        __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_loginFailedException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_loginFailedException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 58, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
         __pyx_t_8 = NULL;
         __pyx_t_10 = 0;
@@ -2111,7 +2097,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_6, __pyx_v_username};
-          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -2120,14 +2106,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_6, __pyx_v_username};
-          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         } else
         #endif
         {
-          __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 62, __pyx_L3_error)
+          __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 58, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_11);
           if (__pyx_t_8) {
             __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -2138,16 +2124,16 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           __Pyx_GIVEREF(__pyx_v_username);
           PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_v_username);
           __pyx_t_6 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_Raise(__pyx_t_5, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __PYX_ERR(0, 62, __pyx_L3_error)
+        __PYX_ERR(0, 58, __pyx_L3_error)
 
-        /* "handlers/getScoresHandler.pyx":61
+        /* "handlers/getScoresHandler.pyx":57
  * 			if userID == 0:
  * 				raise exceptions.loginFailedException(MODULE_NAME, userID)
  * 			if not userUtils.checkLogin(userID, password, ip):             # <<<<<<<<<<<<<<
@@ -2156,16 +2142,16 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       }
 
-      /* "handlers/getScoresHandler.pyx":63
+      /* "handlers/getScoresHandler.pyx":59
  * 			if not userUtils.checkLogin(userID, password, ip):
  * 				raise exceptions.loginFailedException(MODULE_NAME, username)
  * 			if userUtils.check2FA(userID, ip):             # <<<<<<<<<<<<<<
  * 				raise exceptions.need2FAException(MODULE_NAME, username, ip)
  * 			# Ban check is pointless here, since there's no message on the client
  */
-      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_check2FA); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 63, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_check2FA); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 59, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_4 = NULL;
@@ -2183,7 +2169,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_11)) {
         PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_userID, __pyx_v_ip};
-        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
@@ -2191,13 +2177,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
         PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_userID, __pyx_v_ip};
-        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
       #endif
       {
-        __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L3_error)
+        __pyx_t_6 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
         if (__pyx_t_4) {
           __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -2208,28 +2194,28 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         __Pyx_INCREF(__pyx_v_ip);
         __Pyx_GIVEREF(__pyx_v_ip);
         PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_10, __pyx_v_ip);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 63, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 59, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_7) {
 
-        /* "handlers/getScoresHandler.pyx":64
+        /* "handlers/getScoresHandler.pyx":60
  * 				raise exceptions.loginFailedException(MODULE_NAME, username)
  * 			if userUtils.check2FA(userID, ip):
  * 				raise exceptions.need2FAException(MODULE_NAME, username, ip)             # <<<<<<<<<<<<<<
  * 			# Ban check is pointless here, since there's no message on the client
  * 			#if userHelper.isBanned(userID) == True:
  */
-        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 64, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 60, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_need2FAException); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_need2FAException); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 64, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_MODULE_NAME); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 60, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_4 = NULL;
         __pyx_t_10 = 0;
@@ -2246,7 +2232,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_t_11, __pyx_v_username, __pyx_v_ip};
-          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -2255,14 +2241,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
           PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_t_11, __pyx_v_username, __pyx_v_ip};
-          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         } else
         #endif
         {
-          __pyx_t_8 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 64, __pyx_L3_error)
+          __pyx_t_8 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 60, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_8);
           if (__pyx_t_4) {
             __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -2276,16 +2262,16 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           __Pyx_GIVEREF(__pyx_v_ip);
           PyTuple_SET_ITEM(__pyx_t_8, 2+__pyx_t_10, __pyx_v_ip);
           __pyx_t_11 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_Raise(__pyx_t_5, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __PYX_ERR(0, 64, __pyx_L3_error)
+        __PYX_ERR(0, 60, __pyx_L3_error)
 
-        /* "handlers/getScoresHandler.pyx":63
+        /* "handlers/getScoresHandler.pyx":59
  * 			if not userUtils.checkLogin(userID, password, ip):
  * 				raise exceptions.loginFailedException(MODULE_NAME, username)
  * 			if userUtils.check2FA(userID, ip):             # <<<<<<<<<<<<<<
@@ -2294,51 +2280,51 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       }
 
-      /* "handlers/getScoresHandler.pyx":70
+      /* "handlers/getScoresHandler.pyx":66
  * 
  * 			# Hax check
  * 			if "a" in self.request.arguments:             # <<<<<<<<<<<<<<
  * 				if int(self.get_argument("a")) == 1 and not userUtils.getAqn(userID):
  * 					log.warning("Found AQN folder on user {} ({})".format(username, userID), "cm")
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_request); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_request); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_arguments); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_arguments); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 66, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_n_s_a, __pyx_t_6, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 70, __pyx_L3_error)
+      __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_n_s_a, __pyx_t_6, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 66, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_12 = (__pyx_t_7 != 0);
       if (__pyx_t_12) {
 
-        /* "handlers/getScoresHandler.pyx":71
+        /* "handlers/getScoresHandler.pyx":67
  * 			# Hax check
  * 			if "a" in self.request.arguments:
  * 				if int(self.get_argument("a")) == 1 and not userUtils.getAqn(userID):             # <<<<<<<<<<<<<<
  * 					log.warning("Found AQN folder on user {} ({})".format(username, userID), "cm")
  * 					userUtils.setAqn(userID)
  */
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (__pyx_t_7) {
         } else {
           __pyx_t_12 = __pyx_t_7;
           goto __pyx_L16_bool_binop_done;
         }
-        __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_getAqn); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_getAqn); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_6 = NULL;
@@ -2352,13 +2338,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           }
         }
         if (!__pyx_t_6) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_userID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_userID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_8)) {
             PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_v_userID};
-            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
             __Pyx_GOTREF(__pyx_t_5);
           } else
@@ -2366,44 +2352,44 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
             PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_v_userID};
-            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
             __Pyx_GOTREF(__pyx_t_5);
           } else
           #endif
           {
-            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 71, __pyx_L3_error)
+            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 67, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_6); __pyx_t_6 = NULL;
             __Pyx_INCREF(__pyx_v_userID);
             __Pyx_GIVEREF(__pyx_v_userID);
             PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_v_userID);
-            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
         }
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 71, __pyx_L3_error)
+        __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 67, __pyx_L3_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_13 = ((!__pyx_t_7) != 0);
         __pyx_t_12 = __pyx_t_13;
         __pyx_L16_bool_binop_done:;
         if (__pyx_t_12) {
 
-          /* "handlers/getScoresHandler.pyx":72
+          /* "handlers/getScoresHandler.pyx":68
  * 			if "a" in self.request.arguments:
  * 				if int(self.get_argument("a")) == 1 and not userUtils.getAqn(userID):
  * 					log.warning("Found AQN folder on user {} ({})".format(username, userID), "cm")             # <<<<<<<<<<<<<<
  * 					userUtils.setAqn(userID)
  * 
  */
-          __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_log); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
+          __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_log); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 68, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_warning); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L3_error)
+          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_warning); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 68, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Found_AQN_folder_on_user, __pyx_n_s_format); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L3_error)
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Found_AQN_folder_on_user, __pyx_n_s_format); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 68, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_6);
           __pyx_t_4 = NULL;
           __pyx_t_10 = 0;
@@ -2420,7 +2406,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_username, __pyx_v_userID};
-            __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_8);
           } else
@@ -2428,13 +2414,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
             PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_username, __pyx_v_userID};
-            __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_GOTREF(__pyx_t_8);
           } else
           #endif
           {
-            __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_9);
             if (__pyx_t_4) {
               __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -2445,7 +2431,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
             __Pyx_INCREF(__pyx_v_userID);
             __Pyx_GIVEREF(__pyx_v_userID);
             PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_v_userID);
-            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
@@ -2465,7 +2451,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_11)) {
             PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_8, __pyx_n_s_cm};
-            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -2474,14 +2460,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
             PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_8, __pyx_n_s_cm};
-            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           } else
           #endif
           {
-            __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_9);
             if (__pyx_t_6) {
               __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -2492,23 +2478,23 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
             __Pyx_GIVEREF(__pyx_n_s_cm);
             PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_n_s_cm);
             __pyx_t_8 = 0;
-            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-          /* "handlers/getScoresHandler.pyx":73
+          /* "handlers/getScoresHandler.pyx":69
  * 				if int(self.get_argument("a")) == 1 and not userUtils.getAqn(userID):
  * 					log.warning("Found AQN folder on user {} ({})".format(username, userID), "cm")
  * 					userUtils.setAqn(userID)             # <<<<<<<<<<<<<<
  * 
  * 			# Scoreboard type
  */
-          __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 73, __pyx_L3_error)
+          __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 69, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_setAqn); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L3_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_setAqn); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __pyx_t_11 = NULL;
@@ -2522,13 +2508,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
             }
           }
           if (!__pyx_t_11) {
-            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_userID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L3_error)
+            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_userID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L3_error)
             __Pyx_GOTREF(__pyx_t_5);
           } else {
             #if CYTHON_FAST_PYCALL
             if (PyFunction_Check(__pyx_t_9)) {
               PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_v_userID};
-              __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L3_error)
+              __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L3_error)
               __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
               __Pyx_GOTREF(__pyx_t_5);
             } else
@@ -2536,19 +2522,19 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
             #if CYTHON_FAST_PYCCALL
             if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
               PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_v_userID};
-              __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L3_error)
+              __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L3_error)
               __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
               __Pyx_GOTREF(__pyx_t_5);
             } else
             #endif
             {
-              __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 73, __pyx_L3_error)
+              __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 69, __pyx_L3_error)
               __Pyx_GOTREF(__pyx_t_8);
               __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_11); __pyx_t_11 = NULL;
               __Pyx_INCREF(__pyx_v_userID);
               __Pyx_GIVEREF(__pyx_v_userID);
               PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_v_userID);
-              __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L3_error)
+              __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L3_error)
               __Pyx_GOTREF(__pyx_t_5);
               __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             }
@@ -2556,7 +2542,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-          /* "handlers/getScoresHandler.pyx":71
+          /* "handlers/getScoresHandler.pyx":67
  * 			# Hax check
  * 			if "a" in self.request.arguments:
  * 				if int(self.get_argument("a")) == 1 and not userUtils.getAqn(userID):             # <<<<<<<<<<<<<<
@@ -2565,7 +2551,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
         }
 
-        /* "handlers/getScoresHandler.pyx":70
+        /* "handlers/getScoresHandler.pyx":66
  * 
  * 			# Hax check
  * 			if "a" in self.request.arguments:             # <<<<<<<<<<<<<<
@@ -2574,16 +2560,16 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       }
 
-      /* "handlers/getScoresHandler.pyx":76
+      /* "handlers/getScoresHandler.pyx":72
  * 
  * 			# Scoreboard type
  * 			isDonor = userUtils.getPrivileges(userID) & privileges.USER_DONOR > 0             # <<<<<<<<<<<<<<
  * 			country = False
  * 			friends = False
  */
-      __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 76, __pyx_L3_error)
+      __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_userUtils); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 72, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_getPrivileges); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 76, __pyx_L3_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_getPrivileges); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_9 = NULL;
@@ -2597,13 +2583,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         }
       }
       if (!__pyx_t_9) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_userID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_userID); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
       } else {
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_8)) {
           PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_v_userID};
-          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else
@@ -2611,39 +2597,39 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
           PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_v_userID};
-          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else
         #endif
         {
-          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 76, __pyx_L3_error)
+          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
           __Pyx_INCREF(__pyx_v_userID);
           __Pyx_GIVEREF(__pyx_v_userID);
           PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_v_userID);
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L3_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
       }
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_privileges); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 76, __pyx_L3_error)
+      __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_privileges); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_USER_DONOR); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 76, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_USER_DONOR); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyNumber_And(__pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 76, __pyx_L3_error)
+      __pyx_t_8 = PyNumber_And(__pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __pyx_t_11 = PyObject_RichCompare(__pyx_t_8, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 76, __pyx_L3_error)
+      __pyx_t_11 = PyObject_RichCompare(__pyx_t_8, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_v_isDonor = __pyx_t_11;
       __pyx_t_11 = 0;
 
-      /* "handlers/getScoresHandler.pyx":77
+      /* "handlers/getScoresHandler.pyx":73
  * 			# Scoreboard type
  * 			isDonor = userUtils.getPrivileges(userID) & privileges.USER_DONOR > 0
  * 			country = False             # <<<<<<<<<<<<<<
@@ -2652,7 +2638,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       __pyx_v_country = 0;
 
-      /* "handlers/getScoresHandler.pyx":78
+      /* "handlers/getScoresHandler.pyx":74
  * 			isDonor = userUtils.getPrivileges(userID) & privileges.USER_DONOR > 0
  * 			country = False
  * 			friends = False             # <<<<<<<<<<<<<<
@@ -2661,7 +2647,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
       __pyx_v_friends = 0;
 
-      /* "handlers/getScoresHandler.pyx":79
+      /* "handlers/getScoresHandler.pyx":75
  * 			country = False
  * 			friends = False
  * 			modsFilter = -1             # <<<<<<<<<<<<<<
@@ -2671,38 +2657,38 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       __Pyx_INCREF(__pyx_int_neg_1);
       __pyx_v_modsFilter = __pyx_int_neg_1;
 
-      /* "handlers/getScoresHandler.pyx":80
+      /* "handlers/getScoresHandler.pyx":76
  * 			friends = False
  * 			modsFilter = -1
  * 			mods = int(self.get_argument("mods"))             # <<<<<<<<<<<<<<
  * 
  * 			if scoreboardType == 4:
  */
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 80, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 76, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 80, __pyx_L3_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 76, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __pyx_t_11 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 80, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 76, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_v_mods = __pyx_t_11;
       __pyx_t_11 = 0;
 
-      /* "handlers/getScoresHandler.pyx":82
+      /* "handlers/getScoresHandler.pyx":78
  * 			mods = int(self.get_argument("mods"))
  * 
  * 			if scoreboardType == 4:             # <<<<<<<<<<<<<<
  * 				# Country leaderboard
  * 				country = True
  */
-      __pyx_t_11 = __Pyx_PyInt_EqObjC(__pyx_v_scoreboardType, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 82, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyInt_EqObjC(__pyx_v_scoreboardType, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 78, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 82, __pyx_L3_error)
+      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 78, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       if (__pyx_t_12) {
 
-        /* "handlers/getScoresHandler.pyx":84
+        /* "handlers/getScoresHandler.pyx":80
  * 			if scoreboardType == 4:
  * 				# Country leaderboard
  * 				country = True             # <<<<<<<<<<<<<<
@@ -2711,7 +2697,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
         __pyx_v_country = 1;
 
-        /* "handlers/getScoresHandler.pyx":82
+        /* "handlers/getScoresHandler.pyx":78
  * 			mods = int(self.get_argument("mods"))
  * 
  * 			if scoreboardType == 4:             # <<<<<<<<<<<<<<
@@ -2721,38 +2707,38 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         goto __pyx_L18;
       }
 
-      /* "handlers/getScoresHandler.pyx":85
+      /* "handlers/getScoresHandler.pyx":81
  * 				# Country leaderboard
  * 				country = True
  * 			elif scoreboardType == 2:             # <<<<<<<<<<<<<<
  * 				# Mods leaderboard, replace mods (-1, every mod) with "mods" GET parameters
  * 				modsFilter = int(self.get_argument("mods"))
  */
-      __pyx_t_11 = __Pyx_PyInt_EqObjC(__pyx_v_scoreboardType, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 85, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyInt_EqObjC(__pyx_v_scoreboardType, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 81, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 85, __pyx_L3_error)
+      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 81, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       if (__pyx_t_12) {
 
-        /* "handlers/getScoresHandler.pyx":87
+        /* "handlers/getScoresHandler.pyx":83
  * 			elif scoreboardType == 2:
  * 				# Mods leaderboard, replace mods (-1, every mod) with "mods" GET parameters
  * 				modsFilter = int(self.get_argument("mods"))             # <<<<<<<<<<<<<<
  * 
  * 			elif scoreboardType == 3 and isDonor:
  */
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 87, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_argument); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 83, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 87, __pyx_L3_error)
+        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 83, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 87, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 83, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF_SET(__pyx_v_modsFilter, __pyx_t_11);
         __pyx_t_11 = 0;
 
-        /* "handlers/getScoresHandler.pyx":85
+        /* "handlers/getScoresHandler.pyx":81
  * 				# Country leaderboard
  * 				country = True
  * 			elif scoreboardType == 2:             # <<<<<<<<<<<<<<
@@ -2762,28 +2748,28 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         goto __pyx_L18;
       }
 
-      /* "handlers/getScoresHandler.pyx":89
+      /* "handlers/getScoresHandler.pyx":85
  * 				modsFilter = int(self.get_argument("mods"))
  * 
  * 			elif scoreboardType == 3 and isDonor:             # <<<<<<<<<<<<<<
  * 				# Friends leaderboard
  * 				friends = True
  */
-      __pyx_t_11 = __Pyx_PyInt_EqObjC(__pyx_v_scoreboardType, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 89, __pyx_L3_error)
+      __pyx_t_11 = __Pyx_PyInt_EqObjC(__pyx_v_scoreboardType, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 85, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 89, __pyx_L3_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 85, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       if (__pyx_t_13) {
       } else {
         __pyx_t_12 = __pyx_t_13;
         goto __pyx_L19_bool_binop_done;
       }
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_v_isDonor); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 89, __pyx_L3_error)
+      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_v_isDonor); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 85, __pyx_L3_error)
       __pyx_t_12 = __pyx_t_13;
       __pyx_L19_bool_binop_done:;
       if (__pyx_t_12) {
 
-        /* "handlers/getScoresHandler.pyx":91
+        /* "handlers/getScoresHandler.pyx":87
  * 			elif scoreboardType == 3 and isDonor:
  * 				# Friends leaderboard
  * 				friends = True             # <<<<<<<<<<<<<<
@@ -2792,7 +2778,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
  */
         __pyx_v_friends = 1;
 
-        /* "handlers/getScoresHandler.pyx":89
+        /* "handlers/getScoresHandler.pyx":85
  * 				modsFilter = int(self.get_argument("mods"))
  * 
  * 			elif scoreboardType == 3 and isDonor:             # <<<<<<<<<<<<<<
@@ -2802,24 +2788,24 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       }
       __pyx_L18:;
 
-      /* "handlers/getScoresHandler.pyx":94
+      /* "handlers/getScoresHandler.pyx":90
  * 
  * 			# Console output
  * 			fileNameShort = fileName[:32]+"..." if len(fileName) > 32 else fileName[:-4]             # <<<<<<<<<<<<<<
  * 			log.info("Requested beatmap {} ({})".format(fileNameShort, md5))
  * 
  */
-      __pyx_t_14 = PyObject_Length(__pyx_v_fileName); if (unlikely(__pyx_t_14 == ((Py_ssize_t)-1))) __PYX_ERR(0, 94, __pyx_L3_error)
+      __pyx_t_14 = PyObject_Length(__pyx_v_fileName); if (unlikely(__pyx_t_14 == ((Py_ssize_t)-1))) __PYX_ERR(0, 90, __pyx_L3_error)
       if (((__pyx_t_14 > 32) != 0)) {
-        __pyx_t_8 = __Pyx_PyObject_GetSlice(__pyx_v_fileName, 0, 32, NULL, NULL, &__pyx_slice__12, 0, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 94, __pyx_L3_error)
+        __pyx_t_8 = __Pyx_PyObject_GetSlice(__pyx_v_fileName, 0, 32, NULL, NULL, &__pyx_slice__12, 0, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 90, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_5 = PyNumber_Add(__pyx_t_8, __pyx_kp_s__13); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L3_error)
+        __pyx_t_5 = PyNumber_Add(__pyx_t_8, __pyx_kp_s__13); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 90, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __pyx_t_11 = __pyx_t_5;
         __pyx_t_5 = 0;
       } else {
-        __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_v_fileName, 0, -4L, NULL, NULL, &__pyx_slice__14, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_v_fileName, 0, -4L, NULL, NULL, &__pyx_slice__14, 0, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 90, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_11 = __pyx_t_5;
         __pyx_t_5 = 0;
@@ -2827,19 +2813,19 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       __pyx_v_fileNameShort = __pyx_t_11;
       __pyx_t_11 = 0;
 
-      /* "handlers/getScoresHandler.pyx":95
+      /* "handlers/getScoresHandler.pyx":91
  * 			# Console output
  * 			fileNameShort = fileName[:32]+"..." if len(fileName) > 32 else fileName[:-4]
  * 			log.info("Requested beatmap {} ({})".format(fileNameShort, md5))             # <<<<<<<<<<<<<<
  * 
  * 			# Create beatmap object and set its data
  */
-      __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_log); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_log); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_info); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L3_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_info); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Requested_beatmap, __pyx_n_s_format); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 95, __pyx_L3_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Requested_beatmap, __pyx_n_s_format); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 91, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_9);
       __pyx_t_6 = NULL;
       __pyx_t_10 = 0;
@@ -2856,7 +2842,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_9)) {
         PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_fileNameShort, __pyx_v_md5};
-        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
@@ -2864,13 +2850,13 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
         PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_fileNameShort, __pyx_v_md5};
-        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L3_error)
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
       #endif
       {
-        __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L3_error)
+        __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
         if (__pyx_t_6) {
           __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -2881,7 +2867,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         __Pyx_INCREF(__pyx_v_md5);
         __Pyx_GIVEREF(__pyx_v_md5);
         PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_v_md5);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
@@ -2897,14 +2883,14 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         }
       }
       if (!__pyx_t_9) {
-        __pyx_t_11 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_5); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 91, __pyx_L3_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_GOTREF(__pyx_t_11);
       } else {
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_8)) {
           PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_5};
-          __pyx_t_11 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __pyx_t_11 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 91, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -2913,637 +2899,260 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
           PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_5};
-          __pyx_t_11 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __pyx_t_11 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 91, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         } else
         #endif
         {
-          __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_9); __pyx_t_9 = NULL;
           __Pyx_GIVEREF(__pyx_t_5);
           PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_t_5);
           __pyx_t_5 = 0;
-          __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_4, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_4, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 91, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         }
       }
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+
+      /* "handlers/getScoresHandler.pyx":94
+ * 
+ * 			# Create beatmap object and set its data
+ * 			bmap = beatmap.beatmap(md5, beatmapSetID, gameMode, fileName=fileName)             # <<<<<<<<<<<<<<
+ * 			bmap.saveFileName(fileName)
+ * 
+ */
+      __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_beatmap); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_beatmap); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __pyx_t_11 = PyTuple_New(3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_INCREF(__pyx_v_md5);
+      __Pyx_GIVEREF(__pyx_v_md5);
+      PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_v_md5);
+      __Pyx_INCREF(__pyx_v_beatmapSetID);
+      __Pyx_GIVEREF(__pyx_v_beatmapSetID);
+      PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_v_beatmapSetID);
+      __Pyx_INCREF(__pyx_v_gameMode);
+      __Pyx_GIVEREF(__pyx_v_gameMode);
+      PyTuple_SET_ITEM(__pyx_t_11, 2, __pyx_v_gameMode);
+      __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_fileName, __pyx_v_fileName) < 0) __PYX_ERR(0, 94, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_v_bmap = __pyx_t_5;
+      __pyx_t_5 = 0;
+
+      /* "handlers/getScoresHandler.pyx":95
+ * 			# Create beatmap object and set its data
+ * 			bmap = beatmap.beatmap(md5, beatmapSetID, gameMode, fileName=fileName)
+ * 			bmap.saveFileName(fileName)             # <<<<<<<<<<<<<<
+ * 
+ * 			# Create leaderboard object, link it to bmap and get all scores
+ */
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_bmap, __pyx_n_s_saveFileName); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_11 = NULL;
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_11 = PyMethod_GET_SELF(__pyx_t_4);
+        if (likely(__pyx_t_11)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+          __Pyx_INCREF(__pyx_t_11);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
+        }
+      }
+      if (!__pyx_t_11) {
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_fileName); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_5);
+      } else {
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_v_fileName};
+          __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_GOTREF(__pyx_t_5);
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_v_fileName};
+          __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_GOTREF(__pyx_t_5);
+        } else
+        #endif
+        {
+          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __Pyx_GOTREF(__pyx_t_8);
+          __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_11); __pyx_t_11 = NULL;
+          __Pyx_INCREF(__pyx_v_fileName);
+          __Pyx_GIVEREF(__pyx_v_fileName);
+          PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_v_fileName);
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L3_error)
+          __Pyx_GOTREF(__pyx_t_5);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        }
+      }
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
       /* "handlers/getScoresHandler.pyx":98
  * 
- * 			# Create beatmap object and set its data
- * 			bmap = beatmap.beatmap(md5, beatmapSetID, gameMode)             # <<<<<<<<<<<<<<
- * 			b = beatmap.beatmap(md5, 0)
- * 
+ * 			# Create leaderboard object, link it to bmap and get all scores
+ * 			if bool(mods & 128):             # <<<<<<<<<<<<<<
+ * 					sboard = scoreboardRelax.scoreboardRelax(
+ * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
  */
-      __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_beatmap); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 98, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_beatmap); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = NULL;
-      __pyx_t_10 = 0;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-        __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_4);
-        if (likely(__pyx_t_8)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-          __Pyx_INCREF(__pyx_t_8);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_4, function);
-          __pyx_t_10 = 1;
-        }
-      }
-      #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_4)) {
-        PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_md5, __pyx_v_beatmapSetID, __pyx_v_gameMode};
-        __pyx_t_11 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L3_error)
-        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_GOTREF(__pyx_t_11);
-      } else
-      #endif
-      #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-        PyObject *__pyx_temp[4] = {__pyx_t_8, __pyx_v_md5, __pyx_v_beatmapSetID, __pyx_v_gameMode};
-        __pyx_t_11 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_10, 3+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L3_error)
-        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_GOTREF(__pyx_t_11);
-      } else
-      #endif
-      {
-        __pyx_t_5 = PyTuple_New(3+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        if (__pyx_t_8) {
-          __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_8); __pyx_t_8 = NULL;
-        }
-        __Pyx_INCREF(__pyx_v_md5);
-        __Pyx_GIVEREF(__pyx_v_md5);
-        PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_10, __pyx_v_md5);
-        __Pyx_INCREF(__pyx_v_beatmapSetID);
-        __Pyx_GIVEREF(__pyx_v_beatmapSetID);
-        PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_10, __pyx_v_beatmapSetID);
-        __Pyx_INCREF(__pyx_v_gameMode);
-        __Pyx_GIVEREF(__pyx_v_gameMode);
-        PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_10, __pyx_v_gameMode);
-        __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_11);
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      }
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_v_bmap = __pyx_t_11;
-      __pyx_t_11 = 0;
-
-      /* "handlers/getScoresHandler.pyx":99
- * 			# Create beatmap object and set its data
- * 			bmap = beatmap.beatmap(md5, beatmapSetID, gameMode)
- * 			b = beatmap.beatmap(md5, 0)             # <<<<<<<<<<<<<<
- * 
- * 			if b.rankedStatus == rankedStatuses.PENDING:
- */
-      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_beatmap); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_beatmap); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyInt_AndObjC(__pyx_v_mods, __pyx_int_128, 0x80, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = NULL;
-      __pyx_t_10 = 0;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
-        __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-        if (likely(__pyx_t_4)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-          __Pyx_INCREF(__pyx_t_4);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_5, function);
-          __pyx_t_10 = 1;
-        }
-      }
-      #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_5)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_md5, __pyx_int_0};
-        __pyx_t_11 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 99, __pyx_L3_error)
-        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_GOTREF(__pyx_t_11);
-      } else
-      #endif
-      #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_md5, __pyx_int_0};
-        __pyx_t_11 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 99, __pyx_L3_error)
-        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_GOTREF(__pyx_t_11);
-      } else
-      #endif
-      {
-        __pyx_t_8 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 99, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_8);
-        if (__pyx_t_4) {
-          __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4); __pyx_t_4 = NULL;
-        }
-        __Pyx_INCREF(__pyx_v_md5);
-        __Pyx_GIVEREF(__pyx_v_md5);
-        PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_10, __pyx_v_md5);
-        __Pyx_INCREF(__pyx_int_0);
-        __Pyx_GIVEREF(__pyx_int_0);
-        PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_10, __pyx_int_0);
-        __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 99, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_11);
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      }
+      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 98, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_v_b = __pyx_t_11;
-      __pyx_t_11 = 0;
+      if (((!(!__pyx_t_12)) != 0)) {
 
-      /* "handlers/getScoresHandler.pyx":101
- * 			b = beatmap.beatmap(md5, 0)
- * 
- * 			if b.rankedStatus == rankedStatuses.PENDING:             # <<<<<<<<<<<<<<
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(
- */
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_b, __pyx_n_s_rankedStatus); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 101, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_rankedStatuses); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_PENDING); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 101, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = PyObject_RichCompare(__pyx_t_11, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 101, __pyx_L3_error)
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (__pyx_t_12) {
-
-        /* "handlers/getScoresHandler.pyx":102
- * 
- * 			if b.rankedStatus == rankedStatuses.PENDING:
- * 				if bool(mods & 128):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(
+        /* "handlers/getScoresHandler.pyx":99
+ * 			# Create leaderboard object, link it to bmap and get all scores
+ * 			if bool(mods & 128):
+ * 					sboard = scoreboardRelax.scoreboardRelax(             # <<<<<<<<<<<<<<
  * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
+ * 					)
  */
-        __pyx_t_5 = __Pyx_PyInt_AndObjC(__pyx_v_mods, __pyx_int_128, 0x80, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboardRelax); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 102, __pyx_L3_error)
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (((!(!__pyx_t_12)) != 0)) {
-
-          /* "handlers/getScoresHandler.pyx":103
- * 			if b.rankedStatus == rankedStatuses.PENDING:
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboardRelaxScore); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 103, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_scoreboardRelax); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 103, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-          /* "handlers/getScoresHandler.pyx":104
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends             # <<<<<<<<<<<<<<
- * 					)
- * 				elif bool(mods & 8192):
- */
-          __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 103, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_INCREF(__pyx_v_username);
-          __Pyx_GIVEREF(__pyx_v_username);
-          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_username);
-          __Pyx_INCREF(__pyx_v_gameMode);
-          __Pyx_GIVEREF(__pyx_v_gameMode);
-          PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_gameMode);
-          __Pyx_INCREF(__pyx_v_bmap);
-          __Pyx_GIVEREF(__pyx_v_bmap);
-          PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_bmap);
-          __pyx_t_11 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 104, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
-          __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_country, __pyx_t_4) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
-          __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_friends, __pyx_t_4) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-          /* "handlers/getScoresHandler.pyx":103
- * 			if b.rankedStatus == rankedStatuses.PENDING:
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __pyx_v_sboard = __pyx_t_4;
-          __pyx_t_4 = 0;
-
-          /* "handlers/getScoresHandler.pyx":102
- * 
- * 			if b.rankedStatus == rankedStatuses.PENDING:
- * 				if bool(mods & 128):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-          goto __pyx_L22;
-        }
-
-        /* "handlers/getScoresHandler.pyx":106
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- * 				elif bool(mods & 8192):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardAutoScore.scoreboardAuto(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-        __pyx_t_4 = __Pyx_PyInt_AndObjC(__pyx_v_mods, __pyx_int_8192, 0x2000, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_scoreboardRelax); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 106, __pyx_L3_error)
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (((!(!__pyx_t_12)) != 0)) {
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-          /* "handlers/getScoresHandler.pyx":107
- * 					)
- * 				elif bool(mods & 8192):
- * 					sboard = scoreboardAutoScore.scoreboardAuto(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboardAutoScore); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_scoreboardAuto); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 107, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-          /* "handlers/getScoresHandler.pyx":108
- * 				elif bool(mods & 8192):
- * 					sboard = scoreboardAutoScore.scoreboardAuto(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends             # <<<<<<<<<<<<<<
- * 					)
- * 				else:
- */
-          __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_INCREF(__pyx_v_username);
-          __Pyx_GIVEREF(__pyx_v_username);
-          PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_username);
-          __Pyx_INCREF(__pyx_v_gameMode);
-          __Pyx_GIVEREF(__pyx_v_gameMode);
-          PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_gameMode);
-          __Pyx_INCREF(__pyx_v_bmap);
-          __Pyx_GIVEREF(__pyx_v_bmap);
-          PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_bmap);
-          __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
-          __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 108, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_country, __pyx_t_8) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
-          __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 108, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_friends, __pyx_t_8) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-
-          /* "handlers/getScoresHandler.pyx":107
- * 					)
- * 				elif bool(mods & 8192):
- * 					sboard = scoreboardAutoScore.scoreboardAuto(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 107, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_v_sboard = __pyx_t_8;
-          __pyx_t_8 = 0;
-
-          /* "handlers/getScoresHandler.pyx":106
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- * 				elif bool(mods & 8192):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardAutoScore.scoreboardAuto(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-          goto __pyx_L22;
-        }
-
-        /* "handlers/getScoresHandler.pyx":111
- * 					)
- * 				else:
- * 					sboard = scoreboard.scoreboard(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-        /*else*/ {
-          __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboard); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 111, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_scoreboard); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-
-          /* "handlers/getScoresHandler.pyx":112
- * 				else:
- * 					sboard = scoreboard.scoreboard(
+        /* "handlers/getScoresHandler.pyx":100
+ * 			if bool(mods & 128):
+ * 					sboard = scoreboardRelax.scoreboardRelax(
  * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends             # <<<<<<<<<<<<<<
  * 					)
  * 			else:
  */
-          __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 111, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_INCREF(__pyx_v_username);
-          __Pyx_GIVEREF(__pyx_v_username);
-          PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_v_username);
-          __Pyx_INCREF(__pyx_v_gameMode);
-          __Pyx_GIVEREF(__pyx_v_gameMode);
-          PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_v_gameMode);
-          __Pyx_INCREF(__pyx_v_bmap);
-          __Pyx_GIVEREF(__pyx_v_bmap);
-          PyTuple_SET_ITEM(__pyx_t_8, 2, __pyx_v_bmap);
-          __pyx_t_4 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 112, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
-          __pyx_t_11 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 112, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_country, __pyx_t_11) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
-          __pyx_t_11 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 112, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_friends, __pyx_t_11) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx_v_username);
+        __Pyx_GIVEREF(__pyx_v_username);
+        PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_username);
+        __Pyx_INCREF(__pyx_v_gameMode);
+        __Pyx_GIVEREF(__pyx_v_gameMode);
+        PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_gameMode);
+        __Pyx_INCREF(__pyx_v_bmap);
+        __Pyx_GIVEREF(__pyx_v_bmap);
+        PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_bmap);
+        __pyx_t_8 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 100, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 100, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_country, __pyx_t_11) < 0) __PYX_ERR(0, 100, __pyx_L3_error)
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 100, __pyx_L3_error)
+        __pyx_t_11 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_friends, __pyx_t_11) < 0) __PYX_ERR(0, 100, __pyx_L3_error)
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-          /* "handlers/getScoresHandler.pyx":111
- * 					)
- * 				else:
- * 					sboard = scoreboard.scoreboard(             # <<<<<<<<<<<<<<
+        /* "handlers/getScoresHandler.pyx":99
+ * 			# Create leaderboard object, link it to bmap and get all scores
+ * 			if bool(mods & 128):
+ * 					sboard = scoreboardRelax.scoreboardRelax(             # <<<<<<<<<<<<<<
  * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
  * 					)
  */
-          __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, __pyx_t_4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 111, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __pyx_v_sboard = __pyx_t_11;
-          __pyx_t_11 = 0;
-        }
-        __pyx_L22:;
+        __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 99, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_v_sboard = __pyx_t_11;
+        __pyx_t_11 = 0;
 
-        /* "handlers/getScoresHandler.pyx":101
- * 			b = beatmap.beatmap(md5, 0)
+        /* "handlers/getScoresHandler.pyx":98
  * 
- * 			if b.rankedStatus == rankedStatuses.PENDING:             # <<<<<<<<<<<<<<
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelaxScore.scoreboardRelax(
+ * 			# Create leaderboard object, link it to bmap and get all scores
+ * 			if bool(mods & 128):             # <<<<<<<<<<<<<<
+ * 					sboard = scoreboardRelax.scoreboardRelax(
+ * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
  */
         goto __pyx_L21;
       }
 
-      /* "handlers/getScoresHandler.pyx":116
+      /* "handlers/getScoresHandler.pyx":103
+ * 					)
  * 			else:
- * 				# Create leaderboard object, link it to bmap and get all scores
- * 				if bool(mods & 128):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardRelax.scoreboardRelax(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-      /*else*/ {
-        __pyx_t_11 = __Pyx_PyInt_AndObjC(__pyx_v_mods, __pyx_int_128, 0x80, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 116, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 116, __pyx_L3_error)
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (((!(!__pyx_t_12)) != 0)) {
-
-          /* "handlers/getScoresHandler.pyx":117
- * 				# Create leaderboard object, link it to bmap and get all scores
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelax.scoreboardRelax(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboardRelax); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 117, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_scoreboardRelax); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-
-          /* "handlers/getScoresHandler.pyx":118
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelax.scoreboardRelax(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends             # <<<<<<<<<<<<<<
- * 					)
- * 				elif bool(mods & 8192):
- */
-          __pyx_t_11 = PyTuple_New(3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 117, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __Pyx_INCREF(__pyx_v_username);
-          __Pyx_GIVEREF(__pyx_v_username);
-          PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_v_username);
-          __Pyx_INCREF(__pyx_v_gameMode);
-          __Pyx_GIVEREF(__pyx_v_gameMode);
-          PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_v_gameMode);
-          __Pyx_INCREF(__pyx_v_bmap);
-          __Pyx_GIVEREF(__pyx_v_bmap);
-          PyTuple_SET_ITEM(__pyx_t_11, 2, __pyx_v_bmap);
-          __pyx_t_8 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 118, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 118, __pyx_L3_error)
-          __pyx_t_5 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_country, __pyx_t_5) < 0) __PYX_ERR(0, 118, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 118, __pyx_L3_error)
-          __pyx_t_5 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_friends, __pyx_t_5) < 0) __PYX_ERR(0, 118, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-          /* "handlers/getScoresHandler.pyx":117
- * 				# Create leaderboard object, link it to bmap and get all scores
- * 				if bool(mods & 128):
- * 					sboard = scoreboardRelax.scoreboardRelax(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_v_sboard = __pyx_t_5;
-          __pyx_t_5 = 0;
-
-          /* "handlers/getScoresHandler.pyx":116
- * 			else:
- * 				# Create leaderboard object, link it to bmap and get all scores
- * 				if bool(mods & 128):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardRelax.scoreboardRelax(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-          goto __pyx_L23;
-        }
-
-        /* "handlers/getScoresHandler.pyx":120
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- * 				elif bool(mods & 8192):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardAuto.scoreboardAuto(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-        __pyx_t_5 = __Pyx_PyInt_AndObjC(__pyx_v_mods, __pyx_int_8192, 0x2000, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 120, __pyx_L3_error)
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (((!(!__pyx_t_12)) != 0)) {
-
-          /* "handlers/getScoresHandler.pyx":121
- * 					)
- * 				elif bool(mods & 8192):
- * 					sboard = scoreboardAuto.scoreboardAuto(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboardAuto); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_scoreboardAuto); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 121, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-          /* "handlers/getScoresHandler.pyx":122
- * 				elif bool(mods & 8192):
- * 					sboard = scoreboardAuto.scoreboardAuto(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends             # <<<<<<<<<<<<<<
- * 					)
- * 				else:
- */
-          __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_INCREF(__pyx_v_username);
-          __Pyx_GIVEREF(__pyx_v_username);
-          PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_username);
-          __Pyx_INCREF(__pyx_v_gameMode);
-          __Pyx_GIVEREF(__pyx_v_gameMode);
-          PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_gameMode);
-          __Pyx_INCREF(__pyx_v_bmap);
-          __Pyx_GIVEREF(__pyx_v_bmap);
-          PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_bmap);
-          __pyx_t_11 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 122, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 122, __pyx_L3_error)
-          __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_country, __pyx_t_4) < 0) __PYX_ERR(0, 122, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 122, __pyx_L3_error)
-          __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (PyDict_SetItem(__pyx_t_11, __pyx_n_s_friends, __pyx_t_4) < 0) __PYX_ERR(0, 122, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-          /* "handlers/getScoresHandler.pyx":121
- * 					)
- * 				elif bool(mods & 8192):
- * 					sboard = scoreboardAuto.scoreboardAuto(             # <<<<<<<<<<<<<<
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- */
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __pyx_v_sboard = __pyx_t_4;
-          __pyx_t_4 = 0;
-
-          /* "handlers/getScoresHandler.pyx":120
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- * 					)
- * 				elif bool(mods & 8192):             # <<<<<<<<<<<<<<
- * 					sboard = scoreboardAuto.scoreboardAuto(
- * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
- */
-          goto __pyx_L23;
-        }
-
-        /* "handlers/getScoresHandler.pyx":125
- * 					)
- * 				else:
  * 					sboard = scoreboard.scoreboard(             # <<<<<<<<<<<<<<
  * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
  * 					)
  */
-        /*else*/ {
-          __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboard); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_scoreboard); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 125, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      /*else*/ {
+        __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_scoreboard); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 103, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_scoreboard); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 103, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_8);
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
-          /* "handlers/getScoresHandler.pyx":126
- * 				else:
+        /* "handlers/getScoresHandler.pyx":104
+ * 			else:
  * 					sboard = scoreboard.scoreboard(
  * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends             # <<<<<<<<<<<<<<
  * 					)
  * 
  */
-          __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_INCREF(__pyx_v_username);
-          __Pyx_GIVEREF(__pyx_v_username);
-          PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_username);
-          __Pyx_INCREF(__pyx_v_gameMode);
-          __Pyx_GIVEREF(__pyx_v_gameMode);
-          PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_gameMode);
-          __Pyx_INCREF(__pyx_v_bmap);
-          __Pyx_GIVEREF(__pyx_v_bmap);
-          PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_bmap);
-          __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 126, __pyx_L3_error)
-          __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 126, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_country, __pyx_t_8) < 0) __PYX_ERR(0, 126, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 126, __pyx_L3_error)
-          __pyx_t_8 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 126, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_friends, __pyx_t_8) < 0) __PYX_ERR(0, 126, __pyx_L3_error)
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_t_11 = PyTuple_New(3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 103, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        __Pyx_INCREF(__pyx_v_username);
+        __Pyx_GIVEREF(__pyx_v_username);
+        PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_v_username);
+        __Pyx_INCREF(__pyx_v_gameMode);
+        __Pyx_GIVEREF(__pyx_v_gameMode);
+        PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_v_gameMode);
+        __Pyx_INCREF(__pyx_v_bmap);
+        __Pyx_GIVEREF(__pyx_v_bmap);
+        PyTuple_SET_ITEM(__pyx_t_11, 2, __pyx_v_bmap);
+        __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_setScores, Py_True) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_country); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_country, __pyx_t_4) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_mods, __pyx_v_modsFilter) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_friends); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_friends, __pyx_t_4) < 0) __PYX_ERR(0, 104, __pyx_L3_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-          /* "handlers/getScoresHandler.pyx":125
+        /* "handlers/getScoresHandler.pyx":103
  * 					)
- * 				else:
+ * 			else:
  * 					sboard = scoreboard.scoreboard(             # <<<<<<<<<<<<<<
  * 					username, gameMode, bmap, setScores=True, country=country, mods=modsFilter, friends=friends
  * 					)
  */
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 125, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_v_sboard = __pyx_t_8;
-          __pyx_t_8 = 0;
-        }
-        __pyx_L23:;
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_v_sboard = __pyx_t_4;
+        __pyx_t_4 = 0;
       }
       __pyx_L21:;
 
-      /* "handlers/getScoresHandler.pyx":130
+      /* "handlers/getScoresHandler.pyx":108
  * 
  * 			# Data to return
  * 			data = ""             # <<<<<<<<<<<<<<
@@ -3553,24 +3162,24 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       __Pyx_INCREF(__pyx_kp_s__15);
       __pyx_v_data = __pyx_kp_s__15;
 
-      /* "handlers/getScoresHandler.pyx":131
+      /* "handlers/getScoresHandler.pyx":109
  * 			# Data to return
  * 			data = ""
  * 			data += bmap.getData(sboard.totalScores, scoreboardVersion)             # <<<<<<<<<<<<<<
  * 			data += sboard.getScoresData()
  * 			self.write(data)
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_bmap, __pyx_n_s_getData); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_bmap, __pyx_n_s_getData); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_sboard, __pyx_n_s_totalScores); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_11 = NULL;
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_sboard, __pyx_n_s_totalScores); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 109, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_8 = NULL;
       __pyx_t_10 = 0;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
-        __pyx_t_11 = PyMethod_GET_SELF(__pyx_t_5);
-        if (likely(__pyx_t_11)) {
+        __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_5);
+        if (likely(__pyx_t_8)) {
           PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-          __Pyx_INCREF(__pyx_t_11);
+          __Pyx_INCREF(__pyx_t_8);
           __Pyx_INCREF(function);
           __Pyx_DECREF_SET(__pyx_t_5, function);
           __pyx_t_10 = 1;
@@ -3578,86 +3187,86 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
       }
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_5)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_t_4, __pyx_v_scoreboardVersion};
-        __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 131, __pyx_L3_error)
-        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __Pyx_GOTREF(__pyx_t_8);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_11, __pyx_v_scoreboardVersion};
+        __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L3_error)
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       } else
       #endif
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_t_4, __pyx_v_scoreboardVersion};
-        __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 131, __pyx_L3_error)
-        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __Pyx_GOTREF(__pyx_t_8);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_11, __pyx_v_scoreboardVersion};
+        __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L3_error)
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_GOTREF(__pyx_t_4);
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       } else
       #endif
       {
-        __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 131, __pyx_L3_error)
+        __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_9);
-        if (__pyx_t_11) {
-          __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_11); __pyx_t_11 = NULL;
+        if (__pyx_t_8) {
+          __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
         }
-        __Pyx_GIVEREF(__pyx_t_4);
-        PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_10, __pyx_t_4);
+        __Pyx_GIVEREF(__pyx_t_11);
+        PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_10, __pyx_t_11);
         __Pyx_INCREF(__pyx_v_scoreboardVersion);
         __Pyx_GIVEREF(__pyx_v_scoreboardVersion);
         PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_v_scoreboardVersion);
-        __pyx_t_4 = 0;
-        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 131, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_8);
+        __pyx_t_11 = 0;
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_v_data, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L3_error)
+      __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_v_data, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF_SET(__pyx_v_data, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "handlers/getScoresHandler.pyx":132
+      /* "handlers/getScoresHandler.pyx":110
  * 			data = ""
  * 			data += bmap.getData(sboard.totalScores, scoreboardVersion)
  * 			data += sboard.getScoresData()             # <<<<<<<<<<<<<<
  * 			self.write(data)
  * 
  */
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_sboard, __pyx_n_s_getScoresData); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 132, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_8);
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_sboard, __pyx_n_s_getScoresData); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_9 = NULL;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
-        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_8);
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_4);
         if (likely(__pyx_t_9)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
           __Pyx_INCREF(__pyx_t_9);
           __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_8, function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
         }
       }
       if (__pyx_t_9) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 110, __pyx_L3_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       } else {
-        __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 110, __pyx_L3_error)
       }
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyNumber_InPlaceAdd(__pyx_v_data, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 132, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_data, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF_SET(__pyx_v_data, __pyx_t_8);
-      __pyx_t_8 = 0;
+      __Pyx_DECREF_SET(__pyx_v_data, __pyx_t_4);
+      __pyx_t_4 = 0;
 
-      /* "handlers/getScoresHandler.pyx":133
+      /* "handlers/getScoresHandler.pyx":111
  * 			data += bmap.getData(sboard.totalScores, scoreboardVersion)
  * 			data += sboard.getScoresData()
  * 			self.write(data)             # <<<<<<<<<<<<<<
  * 
- * 
+ * 			# Datadog stats
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 133, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_9 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -3670,62 +3279,62 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         }
       }
       if (!__pyx_t_9) {
-        __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_data); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L3_error)
-        __Pyx_GOTREF(__pyx_t_8);
+        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_data); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L3_error)
+        __Pyx_GOTREF(__pyx_t_4);
       } else {
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_v_data};
-          __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L3_error)
+          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_GOTREF(__pyx_t_8);
+          __Pyx_GOTREF(__pyx_t_4);
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_v_data};
-          __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L3_error)
+          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_GOTREF(__pyx_t_8);
+          __Pyx_GOTREF(__pyx_t_4);
         } else
         #endif
         {
-          __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 133, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_9); __pyx_t_9 = NULL;
+          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 111, __pyx_L3_error)
+          __Pyx_GOTREF(__pyx_t_11);
+          __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
           __Pyx_INCREF(__pyx_v_data);
           __Pyx_GIVEREF(__pyx_v_data);
-          PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_data);
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_v_data);
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L3_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "handlers/getScoresHandler.pyx":137
+      /* "handlers/getScoresHandler.pyx":114
  * 
  * 			# Datadog stats
  * 			glob.dog.increment(glob.DATADOG_PREFIX+".served_leaderboards")             # <<<<<<<<<<<<<<
  * 		except exceptions.need2FAException:
  * 			self.write("error: 2fa")
  */
-      __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_glob); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_glob); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_dog); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_dog); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_increment); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_increment); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_glob); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_DATADOG_PREFIX); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 137, __pyx_L3_error)
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_glob); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_DATADOG_PREFIX); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 114, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = PyNumber_Add(__pyx_t_9, __pyx_kp_s_served_leaderboards); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L3_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __pyx_t_11 = PyNumber_Add(__pyx_t_9, __pyx_kp_s_served_leaderboards); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_9 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -3738,44 +3347,44 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
         }
       }
       if (!__pyx_t_9) {
-        __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 137, __pyx_L3_error)
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_GOTREF(__pyx_t_8);
+        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L3_error)
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_GOTREF(__pyx_t_4);
       } else {
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
-          PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_4};
-          __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 137, __pyx_L3_error)
+          PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_11};
+          __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         } else
         #endif
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
-          PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_4};
-          __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 137, __pyx_L3_error)
+          PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_t_11};
+          __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L3_error)
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         } else
         #endif
         {
-          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 137, __pyx_L3_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
-          __Pyx_GIVEREF(__pyx_t_4);
-          PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_4);
-          __pyx_t_4 = 0;
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 137, __pyx_L3_error)
+          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 114, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9); __pyx_t_9 = NULL;
+          __Pyx_GIVEREF(__pyx_t_11);
+          PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_11);
+          __pyx_t_11 = 0;
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L3_error)
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "handlers/getScoresHandler.pyx":30
+      /* "handlers/getScoresHandler.pyx":26
  * 	@sentry.captureTornado
  * 	def asyncGet(self):
  * 		try:             # <<<<<<<<<<<<<<
@@ -3790,171 +3399,171 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
     __pyx_L3_error:;
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "handlers/getScoresHandler.pyx":138
+    /* "handlers/getScoresHandler.pyx":115
  * 			# Datadog stats
  * 			glob.dog.increment(glob.DATADOG_PREFIX+".served_leaderboards")
  * 		except exceptions.need2FAException:             # <<<<<<<<<<<<<<
  * 			self.write("error: 2fa")
  * 		except exceptions.invalidArgumentsException:
  */
-    __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 138, __pyx_L5_except_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_need2FAException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 138, __pyx_L5_except_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L5_except_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_need2FAException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L5_except_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_10) {
       __Pyx_AddTraceback("handlers.getScoresHandler.handler.asyncGet", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_8, &__pyx_t_11) < 0) __PYX_ERR(0, 138, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_8) < 0) __PYX_ERR(0, 115, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_GOTREF(__pyx_t_11);
 
-      /* "handlers/getScoresHandler.pyx":139
+      /* "handlers/getScoresHandler.pyx":116
  * 			glob.dog.increment(glob.DATADOG_PREFIX+".served_leaderboards")
  * 		except exceptions.need2FAException:
  * 			self.write("error: 2fa")             # <<<<<<<<<<<<<<
  * 		except exceptions.invalidArgumentsException:
  * 			self.write("error: meme")
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L5_except_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 139, __pyx_L5_except_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 116, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 116, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       goto __pyx_L4_exception_handled;
     }
 
-    /* "handlers/getScoresHandler.pyx":140
+    /* "handlers/getScoresHandler.pyx":117
  * 		except exceptions.need2FAException:
  * 			self.write("error: 2fa")
  * 		except exceptions.invalidArgumentsException:             # <<<<<<<<<<<<<<
  * 			self.write("error: meme")
  * 		except exceptions.userBannedException:
  */
-    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 140, __pyx_L5_except_error)
-    __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_invalidArgumentsException); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L5_except_error)
+    __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 117, __pyx_L5_except_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_8);
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_invalidArgumentsException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 117, __pyx_L5_except_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_10) {
       __Pyx_AddTraceback("handlers.getScoresHandler.handler.asyncGet", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_11, &__pyx_t_5) < 0) __PYX_ERR(0, 140, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_8, &__pyx_t_5) < 0) __PYX_ERR(0, 117, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_GOTREF(__pyx_t_11);
       __Pyx_GOTREF(__pyx_t_5);
 
-      /* "handlers/getScoresHandler.pyx":141
+      /* "handlers/getScoresHandler.pyx":118
  * 			self.write("error: 2fa")
  * 		except exceptions.invalidArgumentsException:
  * 			self.write("error: meme")             # <<<<<<<<<<<<<<
  * 		except exceptions.userBannedException:
  * 			self.write("error: ban")
  */
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 141, __pyx_L5_except_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 118, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L5_except_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 118, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       goto __pyx_L4_exception_handled;
     }
 
-    /* "handlers/getScoresHandler.pyx":142
+    /* "handlers/getScoresHandler.pyx":119
  * 		except exceptions.invalidArgumentsException:
  * 			self.write("error: meme")
  * 		except exceptions.userBannedException:             # <<<<<<<<<<<<<<
  * 			self.write("error: ban")
  * 		except exceptions.loginFailedException:
  */
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L5_except_error)
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L5_except_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_userBannedException); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 142, __pyx_L5_except_error)
-    __Pyx_GOTREF(__pyx_t_11);
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_userBannedException); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 119, __pyx_L5_except_error)
+    __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_11);
-    __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+    __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     if (__pyx_t_10) {
       __Pyx_AddTraceback("handlers.getScoresHandler.handler.asyncGet", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_11, &__pyx_t_5, &__pyx_t_8) < 0) __PYX_ERR(0, 142, __pyx_L5_except_error)
-      __Pyx_GOTREF(__pyx_t_11);
-      __Pyx_GOTREF(__pyx_t_5);
+      if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_5, &__pyx_t_4) < 0) __PYX_ERR(0, 119, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_GOTREF(__pyx_t_4);
 
-      /* "handlers/getScoresHandler.pyx":143
+      /* "handlers/getScoresHandler.pyx":120
  * 			self.write("error: meme")
  * 		except exceptions.userBannedException:
  * 			self.write("error: ban")             # <<<<<<<<<<<<<<
  * 		except exceptions.loginFailedException:
  * 			self.write("error: pass")
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L5_except_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L5_except_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 120, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       goto __pyx_L4_exception_handled;
     }
 
-    /* "handlers/getScoresHandler.pyx":144
+    /* "handlers/getScoresHandler.pyx":121
  * 		except exceptions.userBannedException:
  * 			self.write("error: ban")
  * 		except exceptions.loginFailedException:             # <<<<<<<<<<<<<<
  * 			self.write("error: pass")
  */
-    __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 144, __pyx_L5_except_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_loginFailedException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L5_except_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_exceptions); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L5_except_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_loginFailedException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L5_except_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_10) {
       __Pyx_AddTraceback("handlers.getScoresHandler.handler.asyncGet", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_8, &__pyx_t_11) < 0) __PYX_ERR(0, 144, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_8) < 0) __PYX_ERR(0, 121, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_GOTREF(__pyx_t_11);
 
-      /* "handlers/getScoresHandler.pyx":145
+      /* "handlers/getScoresHandler.pyx":122
  * 			self.write("error: ban")
  * 		except exceptions.loginFailedException:
  * 			self.write("error: pass")             # <<<<<<<<<<<<<<
  */
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 145, __pyx_L5_except_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_write); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 122, __pyx_L5_except_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L5_except_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 122, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       goto __pyx_L4_exception_handled;
     }
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "handlers/getScoresHandler.pyx":30
+    /* "handlers/getScoresHandler.pyx":26
  * 	@sentry.captureTornado
  * 	def asyncGet(self):
  * 		try:             # <<<<<<<<<<<<<<
@@ -3974,7 +3583,7 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
     __pyx_L8_try_end:;
   }
 
-  /* "handlers/getScoresHandler.pyx":29
+  /* "handlers/getScoresHandler.pyx":25
  * 	@tornado.gen.engine
  * 	@sentry.captureTornado
  * 	def asyncGet(self):             # <<<<<<<<<<<<<<
@@ -4010,7 +3619,6 @@ static PyObject *__pyx_pf_8handlers_16getScoresHandler_7handler_asyncGet(CYTHON_
   __Pyx_XDECREF(__pyx_v_mods);
   __Pyx_XDECREF(__pyx_v_fileNameShort);
   __Pyx_XDECREF(__pyx_v_bmap);
-  __Pyx_XDECREF(__pyx_v_b);
   __Pyx_XDECREF(__pyx_v_sboard);
   __Pyx_XDECREF(__pyx_v_data);
   __Pyx_XGIVEREF(__pyx_r);
@@ -4059,7 +3667,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Found_AQN_folder_on_user, __pyx_k_Found_AQN_folder_on_user, sizeof(__pyx_k_Found_AQN_folder_on_user), 0, 0, 1, 0},
   {&__pyx_kp_s_Handler_for_web_osu_osz2_getsco, __pyx_k_Handler_for_web_osu_osz2_getsco, sizeof(__pyx_k_Handler_for_web_osu_osz2_getsco), 0, 0, 1, 0},
   {&__pyx_n_s_MODULE_NAME, __pyx_k_MODULE_NAME, sizeof(__pyx_k_MODULE_NAME), 0, 0, 1, 1},
-  {&__pyx_n_s_PENDING, __pyx_k_PENDING, sizeof(__pyx_k_PENDING), 0, 0, 1, 1},
   {&__pyx_kp_s_Requested_beatmap, __pyx_k_Requested_beatmap, sizeof(__pyx_k_Requested_beatmap), 0, 0, 1, 0},
   {&__pyx_n_s_USER_DONOR, __pyx_k_USER_DONOR, sizeof(__pyx_k_USER_DONOR), 0, 0, 1, 1},
   {&__pyx_kp_s__13, __pyx_k__13, sizeof(__pyx_k__13), 0, 0, 1, 0},
@@ -4069,7 +3676,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_asyncGet, __pyx_k_asyncGet, sizeof(__pyx_k_asyncGet), 0, 0, 1, 1},
   {&__pyx_n_s_asyncRequestHandler, __pyx_k_asyncRequestHandler, sizeof(__pyx_k_asyncRequestHandler), 0, 0, 1, 1},
   {&__pyx_n_s_asynchronous, __pyx_k_asynchronous, sizeof(__pyx_k_asynchronous), 0, 0, 1, 1},
-  {&__pyx_n_s_b, __pyx_k_b, sizeof(__pyx_k_b), 0, 0, 1, 1},
   {&__pyx_n_s_beatmap, __pyx_k_beatmap, sizeof(__pyx_k_beatmap), 0, 0, 1, 1},
   {&__pyx_n_s_beatmapSetID, __pyx_k_beatmapSetID, sizeof(__pyx_k_beatmapSetID), 0, 0, 1, 1},
   {&__pyx_n_s_bmap, __pyx_k_bmap, sizeof(__pyx_k_bmap), 0, 0, 1, 1},
@@ -4143,16 +3749,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_printArguments, __pyx_k_printArguments, sizeof(__pyx_k_printArguments), 0, 0, 1, 1},
   {&__pyx_n_s_privileges, __pyx_k_privileges, sizeof(__pyx_k_privileges), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
-  {&__pyx_n_s_rankedStatus, __pyx_k_rankedStatus, sizeof(__pyx_k_rankedStatus), 0, 0, 1, 1},
-  {&__pyx_n_s_rankedStatuses, __pyx_k_rankedStatuses, sizeof(__pyx_k_rankedStatuses), 0, 0, 1, 1},
   {&__pyx_n_s_request, __pyx_k_request, sizeof(__pyx_k_request), 0, 0, 1, 1},
   {&__pyx_n_s_requestsManager, __pyx_k_requestsManager, sizeof(__pyx_k_requestsManager), 0, 0, 1, 1},
+  {&__pyx_n_s_saveFileName, __pyx_k_saveFileName, sizeof(__pyx_k_saveFileName), 0, 0, 1, 1},
   {&__pyx_n_s_sboard, __pyx_k_sboard, sizeof(__pyx_k_sboard), 0, 0, 1, 1},
   {&__pyx_n_s_scoreboard, __pyx_k_scoreboard, sizeof(__pyx_k_scoreboard), 0, 0, 1, 1},
-  {&__pyx_n_s_scoreboardAuto, __pyx_k_scoreboardAuto, sizeof(__pyx_k_scoreboardAuto), 0, 0, 1, 1},
-  {&__pyx_n_s_scoreboardAutoScore, __pyx_k_scoreboardAutoScore, sizeof(__pyx_k_scoreboardAutoScore), 0, 0, 1, 1},
   {&__pyx_n_s_scoreboardRelax, __pyx_k_scoreboardRelax, sizeof(__pyx_k_scoreboardRelax), 0, 0, 1, 1},
-  {&__pyx_n_s_scoreboardRelaxScore, __pyx_k_scoreboardRelaxScore, sizeof(__pyx_k_scoreboardRelaxScore), 0, 0, 1, 1},
   {&__pyx_n_s_scoreboardType, __pyx_k_scoreboardType, sizeof(__pyx_k_scoreboardType), 0, 0, 1, 1},
   {&__pyx_n_s_scoreboardVersion, __pyx_k_scoreboardVersion, sizeof(__pyx_k_scoreboardVersion), 0, 0, 1, 1},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
@@ -4185,194 +3787,194 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "handlers/getScoresHandler.pyx":48
+  /* "handlers/getScoresHandler.pyx":44
  * 
  * 			# GET parameters
  * 			md5 = self.get_argument("c")             # <<<<<<<<<<<<<<
  * 			fileName = self.get_argument("f")
  * 			beatmapSetID = self.get_argument("i")
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_c); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_c); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "handlers/getScoresHandler.pyx":49
+  /* "handlers/getScoresHandler.pyx":45
  * 			# GET parameters
  * 			md5 = self.get_argument("c")
  * 			fileName = self.get_argument("f")             # <<<<<<<<<<<<<<
  * 			beatmapSetID = self.get_argument("i")
  * 			gameMode = self.get_argument("m")
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_n_s_f); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_n_s_f); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "handlers/getScoresHandler.pyx":50
+  /* "handlers/getScoresHandler.pyx":46
  * 			md5 = self.get_argument("c")
  * 			fileName = self.get_argument("f")
  * 			beatmapSetID = self.get_argument("i")             # <<<<<<<<<<<<<<
  * 			gameMode = self.get_argument("m")
  * 			username = self.get_argument("us")
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_i); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_i); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "handlers/getScoresHandler.pyx":51
+  /* "handlers/getScoresHandler.pyx":47
  * 			fileName = self.get_argument("f")
  * 			beatmapSetID = self.get_argument("i")
  * 			gameMode = self.get_argument("m")             # <<<<<<<<<<<<<<
  * 			username = self.get_argument("us")
  * 			password = self.get_argument("ha")
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_n_s_m); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_n_s_m); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "handlers/getScoresHandler.pyx":52
+  /* "handlers/getScoresHandler.pyx":48
  * 			beatmapSetID = self.get_argument("i")
  * 			gameMode = self.get_argument("m")
  * 			username = self.get_argument("us")             # <<<<<<<<<<<<<<
  * 			password = self.get_argument("ha")
  * 			scoreboardType = int(self.get_argument("v"))
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_n_s_us); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_n_s_us); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "handlers/getScoresHandler.pyx":53
+  /* "handlers/getScoresHandler.pyx":49
  * 			gameMode = self.get_argument("m")
  * 			username = self.get_argument("us")
  * 			password = self.get_argument("ha")             # <<<<<<<<<<<<<<
  * 			scoreboardType = int(self.get_argument("v"))
  * 			scoreboardVersion = int(self.get_argument("vv"))
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_n_s_ha); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_n_s_ha); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "handlers/getScoresHandler.pyx":54
+  /* "handlers/getScoresHandler.pyx":50
  * 			username = self.get_argument("us")
  * 			password = self.get_argument("ha")
  * 			scoreboardType = int(self.get_argument("v"))             # <<<<<<<<<<<<<<
  * 			scoreboardVersion = int(self.get_argument("vv"))
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_s_v); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_s_v); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "handlers/getScoresHandler.pyx":55
+  /* "handlers/getScoresHandler.pyx":51
  * 			password = self.get_argument("ha")
  * 			scoreboardType = int(self.get_argument("v"))
  * 			scoreboardVersion = int(self.get_argument("vv"))             # <<<<<<<<<<<<<<
  * 
  * 			# Login and ban check
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_s_vv); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_s_vv); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "handlers/getScoresHandler.pyx":71
+  /* "handlers/getScoresHandler.pyx":67
  * 			# Hax check
  * 			if "a" in self.request.arguments:
  * 				if int(self.get_argument("a")) == 1 and not userUtils.getAqn(userID):             # <<<<<<<<<<<<<<
  * 					log.warning("Found AQN folder on user {} ({})".format(username, userID), "cm")
  * 					userUtils.setAqn(userID)
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_a); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_a); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "handlers/getScoresHandler.pyx":80
+  /* "handlers/getScoresHandler.pyx":76
  * 			friends = False
  * 			modsFilter = -1
  * 			mods = int(self.get_argument("mods"))             # <<<<<<<<<<<<<<
  * 
  * 			if scoreboardType == 4:
  */
-  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_mods); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_mods); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "handlers/getScoresHandler.pyx":87
+  /* "handlers/getScoresHandler.pyx":83
  * 			elif scoreboardType == 2:
  * 				# Mods leaderboard, replace mods (-1, every mod) with "mods" GET parameters
  * 				modsFilter = int(self.get_argument("mods"))             # <<<<<<<<<<<<<<
  * 
  * 			elif scoreboardType == 3 and isDonor:
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_mods); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_mods); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "handlers/getScoresHandler.pyx":94
+  /* "handlers/getScoresHandler.pyx":90
  * 
  * 			# Console output
  * 			fileNameShort = fileName[:32]+"..." if len(fileName) > 32 else fileName[:-4]             # <<<<<<<<<<<<<<
  * 			log.info("Requested beatmap {} ({})".format(fileNameShort, md5))
  * 
  */
-  __pyx_slice__12 = PySlice_New(Py_None, __pyx_int_32, Py_None); if (unlikely(!__pyx_slice__12)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_slice__12 = PySlice_New(Py_None, __pyx_int_32, Py_None); if (unlikely(!__pyx_slice__12)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__12);
   __Pyx_GIVEREF(__pyx_slice__12);
-  __pyx_slice__14 = PySlice_New(Py_None, __pyx_int_neg_4, Py_None); if (unlikely(!__pyx_slice__14)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_slice__14 = PySlice_New(Py_None, __pyx_int_neg_4, Py_None); if (unlikely(!__pyx_slice__14)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__14);
   __Pyx_GIVEREF(__pyx_slice__14);
 
-  /* "handlers/getScoresHandler.pyx":139
+  /* "handlers/getScoresHandler.pyx":116
  * 			glob.dog.increment(glob.DATADOG_PREFIX+".served_leaderboards")
  * 		except exceptions.need2FAException:
  * 			self.write("error: 2fa")             # <<<<<<<<<<<<<<
  * 		except exceptions.invalidArgumentsException:
  * 			self.write("error: meme")
  */
-  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_s_error_2fa); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_s_error_2fa); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
 
-  /* "handlers/getScoresHandler.pyx":141
+  /* "handlers/getScoresHandler.pyx":118
  * 			self.write("error: 2fa")
  * 		except exceptions.invalidArgumentsException:
  * 			self.write("error: meme")             # <<<<<<<<<<<<<<
  * 		except exceptions.userBannedException:
  * 			self.write("error: ban")
  */
-  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_s_error_meme); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_s_error_meme); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
 
-  /* "handlers/getScoresHandler.pyx":143
+  /* "handlers/getScoresHandler.pyx":120
  * 			self.write("error: meme")
  * 		except exceptions.userBannedException:
  * 			self.write("error: ban")             # <<<<<<<<<<<<<<
  * 		except exceptions.loginFailedException:
  * 			self.write("error: pass")
  */
-  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_s_error_ban); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_s_error_ban); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 120, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "handlers/getScoresHandler.pyx":145
+  /* "handlers/getScoresHandler.pyx":122
  * 			self.write("error: ban")
  * 		except exceptions.loginFailedException:
  * 			self.write("error: pass")             # <<<<<<<<<<<<<<
  */
-  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_error_pass); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_error_pass); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
-  /* "handlers/getScoresHandler.pyx":29
+  /* "handlers/getScoresHandler.pyx":25
  * 	@tornado.gen.engine
  * 	@sentry.captureTornado
  * 	def asyncGet(self):             # <<<<<<<<<<<<<<
  * 		try:
  * 			# Get request ip
  */
-  __pyx_tuple__20 = PyTuple_Pack(21, __pyx_n_s_self, __pyx_n_s_ip, __pyx_n_s_md5, __pyx_n_s_fileName, __pyx_n_s_beatmapSetID, __pyx_n_s_gameMode, __pyx_n_s_username, __pyx_n_s_password, __pyx_n_s_scoreboardType, __pyx_n_s_scoreboardVersion, __pyx_n_s_userID, __pyx_n_s_isDonor, __pyx_n_s_country, __pyx_n_s_friends, __pyx_n_s_modsFilter, __pyx_n_s_mods, __pyx_n_s_fileNameShort, __pyx_n_s_bmap, __pyx_n_s_b, __pyx_n_s_sboard, __pyx_n_s_data); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(20, __pyx_n_s_self, __pyx_n_s_ip, __pyx_n_s_md5, __pyx_n_s_fileName, __pyx_n_s_beatmapSetID, __pyx_n_s_gameMode, __pyx_n_s_username, __pyx_n_s_password, __pyx_n_s_scoreboardType, __pyx_n_s_scoreboardVersion, __pyx_n_s_userID, __pyx_n_s_isDonor, __pyx_n_s_country, __pyx_n_s_friends, __pyx_n_s_modsFilter, __pyx_n_s_mods, __pyx_n_s_fileNameShort, __pyx_n_s_bmap, __pyx_n_s_sboard, __pyx_n_s_data); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 21, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_handlers_getScoresHandler_pyx, __pyx_n_s_asyncGet, 29, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 20, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_handlers_getScoresHandler_pyx, __pyx_n_s_asyncGet, 25, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4389,7 +3991,6 @@ static int __Pyx_InitGlobals(void) {
   __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_32 = PyInt_FromLong(32); if (unlikely(!__pyx_int_32)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_128 = PyInt_FromLong(128); if (unlikely(!__pyx_int_128)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_8192 = PyInt_FromLong(8192); if (unlikely(!__pyx_int_8192)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_4 = PyInt_FromLong(-4); if (unlikely(!__pyx_int_neg_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
@@ -4612,7 +4213,7 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
  * from objects import beatmap
  * from objects import scoreboard             # <<<<<<<<<<<<<<
  * from objects import scoreboardRelax
- * from objects import scoreboardRelaxScore
+ * from common.constants import privileges
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4632,8 +4233,8 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
  * from objects import beatmap
  * from objects import scoreboard
  * from objects import scoreboardRelax             # <<<<<<<<<<<<<<
- * from objects import scoreboardRelaxScore
- * from objects import scoreboardAuto
+ * from common.constants import privileges
+ * from common.log import logUtils as log
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -4652,339 +4253,255 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
   /* "handlers/getScoresHandler.pyx":8
  * from objects import scoreboard
  * from objects import scoreboardRelax
- * from objects import scoreboardRelaxScore             # <<<<<<<<<<<<<<
- * from objects import scoreboardAuto
- * from objects import scoreboardAutoScore
+ * from common.constants import privileges             # <<<<<<<<<<<<<<
+ * from common.log import logUtils as log
+ * from common.ripple import userUtils
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_scoreboardRelaxScore);
-  __Pyx_GIVEREF(__pyx_n_s_scoreboardRelaxScore);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_scoreboardRelaxScore);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_objects, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_n_s_privileges);
+  __Pyx_GIVEREF(__pyx_n_s_privileges);
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_privileges);
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_common_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_scoreboardRelaxScore); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_privileges); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_scoreboardRelaxScore, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_privileges, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "handlers/getScoresHandler.pyx":9
  * from objects import scoreboardRelax
- * from objects import scoreboardRelaxScore
- * from objects import scoreboardAuto             # <<<<<<<<<<<<<<
- * from objects import scoreboardAutoScore
  * from common.constants import privileges
- */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_scoreboardAuto);
-  __Pyx_GIVEREF(__pyx_n_s_scoreboardAuto);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_scoreboardAuto);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_objects, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_scoreboardAuto); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_scoreboardAuto, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "handlers/getScoresHandler.pyx":10
- * from objects import scoreboardRelaxScore
- * from objects import scoreboardAuto
- * from objects import scoreboardAutoScore             # <<<<<<<<<<<<<<
- * from common.constants import privileges
- * from constants import rankedStatuses
- */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_scoreboardAutoScore);
-  __Pyx_GIVEREF(__pyx_n_s_scoreboardAutoScore);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_scoreboardAutoScore);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_objects, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_scoreboardAutoScore); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_scoreboardAutoScore, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "handlers/getScoresHandler.pyx":11
- * from objects import scoreboardAuto
- * from objects import scoreboardAutoScore
- * from common.constants import privileges             # <<<<<<<<<<<<<<
- * from constants import rankedStatuses
- * from common.log import logUtils as log
- */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_privileges);
-  __Pyx_GIVEREF(__pyx_n_s_privileges);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_privileges);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_constants, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_privileges); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_privileges, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "handlers/getScoresHandler.pyx":12
- * from objects import scoreboardAutoScore
- * from common.constants import privileges
- * from constants import rankedStatuses             # <<<<<<<<<<<<<<
- * from common.log import logUtils as log
- * from common.ripple import userUtils
- */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_rankedStatuses);
-  __Pyx_GIVEREF(__pyx_n_s_rankedStatuses);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_rankedStatuses);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_rankedStatuses); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_rankedStatuses, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "handlers/getScoresHandler.pyx":13
- * from common.constants import privileges
- * from constants import rankedStatuses
  * from common.log import logUtils as log             # <<<<<<<<<<<<<<
  * from common.ripple import userUtils
  * from common.web import requestsManager
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_logUtils);
   __Pyx_GIVEREF(__pyx_n_s_logUtils);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_logUtils);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_log, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_log, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_logUtils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_logUtils); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_log, __pyx_t_1) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_log, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "handlers/getScoresHandler.pyx":14
- * from constants import rankedStatuses
+  /* "handlers/getScoresHandler.pyx":10
+ * from common.constants import privileges
  * from common.log import logUtils as log
  * from common.ripple import userUtils             # <<<<<<<<<<<<<<
  * from common.web import requestsManager
  * from constants import exceptions
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_userUtils);
   __Pyx_GIVEREF(__pyx_n_s_userUtils);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_userUtils);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_common_ripple, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_common_ripple, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_userUtils); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_userUtils); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_userUtils, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_userUtils, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "handlers/getScoresHandler.pyx":15
+  /* "handlers/getScoresHandler.pyx":11
  * from common.log import logUtils as log
  * from common.ripple import userUtils
  * from common.web import requestsManager             # <<<<<<<<<<<<<<
  * from constants import exceptions
  * from objects import glob
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_requestsManager);
   __Pyx_GIVEREF(__pyx_n_s_requestsManager);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_requestsManager);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_web, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_web, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_requestsManager); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_requestsManager); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_requestsManager, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_requestsManager, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "handlers/getScoresHandler.pyx":16
+  /* "handlers/getScoresHandler.pyx":12
  * from common.ripple import userUtils
  * from common.web import requestsManager
  * from constants import exceptions             # <<<<<<<<<<<<<<
  * from objects import glob
  * from common.constants import mods
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_exceptions);
   __Pyx_GIVEREF(__pyx_n_s_exceptions);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_exceptions);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_exceptions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_exceptions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_exceptions, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_exceptions, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "handlers/getScoresHandler.pyx":17
+  /* "handlers/getScoresHandler.pyx":13
  * from common.web import requestsManager
  * from constants import exceptions
  * from objects import glob             # <<<<<<<<<<<<<<
  * from common.constants import mods
  * from common.sentry import sentry
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_glob);
   __Pyx_GIVEREF(__pyx_n_s_glob);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_glob);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_objects, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_objects, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_glob); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_glob); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_glob, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_glob, __pyx_t_1) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "handlers/getScoresHandler.pyx":18
+  /* "handlers/getScoresHandler.pyx":14
  * from constants import exceptions
  * from objects import glob
  * from common.constants import mods             # <<<<<<<<<<<<<<
  * from common.sentry import sentry
  * 
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_mods);
   __Pyx_GIVEREF(__pyx_n_s_mods);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_mods);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_common_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_common_constants, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_mods); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_mods); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_mods, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_mods, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "handlers/getScoresHandler.pyx":19
+  /* "handlers/getScoresHandler.pyx":15
  * from objects import glob
  * from common.constants import mods
  * from common.sentry import sentry             # <<<<<<<<<<<<<<
  * 
  * MODULE_NAME = "get_scores"
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_sentry);
   __Pyx_GIVEREF(__pyx_n_s_sentry);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_sentry);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_sentry, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_common_sentry, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_sentry); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_sentry); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sentry, __pyx_t_1) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sentry, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "handlers/getScoresHandler.pyx":21
+  /* "handlers/getScoresHandler.pyx":17
  * from common.sentry import sentry
  * 
  * MODULE_NAME = "get_scores"             # <<<<<<<<<<<<<<
  * class handler(requestsManager.asyncRequestHandler):
  * 	"""
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MODULE_NAME, __pyx_n_s_get_scores) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_MODULE_NAME, __pyx_n_s_get_scores) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
 
-  /* "handlers/getScoresHandler.pyx":22
+  /* "handlers/getScoresHandler.pyx":18
  * 
  * MODULE_NAME = "get_scores"
  * class handler(requestsManager.asyncRequestHandler):             # <<<<<<<<<<<<<<
  * 	"""
  * 	Handler for /web/osu-osz2-getscores.php
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_requestsManager); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_requestsManager); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asyncRequestHandler); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asyncRequestHandler); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_handler, __pyx_n_s_handler, (PyObject *) NULL, __pyx_n_s_handlers_getScoresHandler, __pyx_kp_s_Handler_for_web_osu_osz2_getsco); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_handler, __pyx_n_s_handler, (PyObject *) NULL, __pyx_n_s_handlers_getScoresHandler, __pyx_kp_s_Handler_for_web_osu_osz2_getsco); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "handlers/getScoresHandler.pyx":26
+  /* "handlers/getScoresHandler.pyx":22
  * 	Handler for /web/osu-osz2-getscores.php
  * 	"""
  * 	@tornado.web.asynchronous             # <<<<<<<<<<<<<<
  * 	@tornado.gen.engine
  * 	@sentry.captureTornado
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_tornado); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_tornado); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_web); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_web); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_asynchronous); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_asynchronous); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "handlers/getScoresHandler.pyx":27
+  /* "handlers/getScoresHandler.pyx":23
  * 	"""
  * 	@tornado.web.asynchronous
  * 	@tornado.gen.engine             # <<<<<<<<<<<<<<
  * 	@sentry.captureTornado
  * 	def asyncGet(self):
  */
-  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_tornado); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_tornado); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_gen); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_gen); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_engine); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_engine); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "handlers/getScoresHandler.pyx":28
+  /* "handlers/getScoresHandler.pyx":24
  * 	@tornado.web.asynchronous
  * 	@tornado.gen.engine
  * 	@sentry.captureTornado             # <<<<<<<<<<<<<<
  * 	def asyncGet(self):
  * 		try:
  */
-  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_sentry); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_sentry); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_captureTornado); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_captureTornado); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "handlers/getScoresHandler.pyx":29
+  /* "handlers/getScoresHandler.pyx":25
  * 	@tornado.gen.engine
  * 	@sentry.captureTornado
  * 	def asyncGet(self):             # <<<<<<<<<<<<<<
  * 		try:
  * 			# Get request ip
  */
-  __pyx_t_9 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8handlers_16getScoresHandler_7handler_1asyncGet, 0, __pyx_n_s_handler_asyncGet, NULL, __pyx_n_s_handlers_getScoresHandler, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CyFunction_NewEx(&__pyx_mdef_8handlers_16getScoresHandler_7handler_1asyncGet, 0, __pyx_n_s_handler_asyncGet, NULL, __pyx_n_s_handlers_getScoresHandler, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_11 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_10))) {
@@ -4997,14 +4514,14 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
     }
   }
   if (!__pyx_t_11) {
-    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 28, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_8);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_10)) {
       PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_t_9};
-      __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 28, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 24, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -5013,20 +4530,20 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_10)) {
       PyObject *__pyx_temp[2] = {__pyx_t_11, __pyx_t_9};
-      __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 28, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_10, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 24, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     } else
     #endif
     {
-      __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 28, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 24, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_12, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 28, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_12, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 24, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     }
@@ -5043,14 +4560,14 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
     }
   }
   if (!__pyx_t_10) {
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_6);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_t_8};
-      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -5059,20 +4576,20 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[2] = {__pyx_t_10, __pyx_t_8};
-      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     } else
     #endif
     {
-      __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 27, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10); __pyx_t_10 = NULL;
       __Pyx_GIVEREF(__pyx_t_8);
       PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_8);
       __pyx_t_8 = 0;
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_12, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_12, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     }
@@ -5089,14 +4606,14 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
     }
   }
   if (!__pyx_t_7) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_4);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[2] = {__pyx_t_7, __pyx_t_6};
-      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5105,38 +4622,38 @@ static int __pyx_pymod_exec_getScoresHandler(PyObject *__pyx_pyinit_module)
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[2] = {__pyx_t_7, __pyx_t_6};
-      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else
     #endif
     {
-      __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 26, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 22, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_7); __pyx_t_7 = NULL;
       __Pyx_GIVEREF(__pyx_t_6);
       PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_6);
       __pyx_t_6 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     }
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_asyncGet, __pyx_t_4) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_asyncGet, __pyx_t_4) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "handlers/getScoresHandler.pyx":22
+  /* "handlers/getScoresHandler.pyx":18
  * 
  * MODULE_NAME = "get_scores"
  * class handler(requestsManager.asyncRequestHandler):             # <<<<<<<<<<<<<<
  * 	"""
  * 	Handler for /web/osu-osz2-getscores.php
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_handler, __pyx_t_2, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_handler, __pyx_t_2, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_handler, __pyx_t_4) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_handler, __pyx_t_4) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;

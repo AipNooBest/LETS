@@ -10,6 +10,7 @@ class config:
 	"""
 
 	config = configparser.ConfigParser()
+	extra = {}
 	fileName = ""		# config filename
 	default = True
 
@@ -30,7 +31,6 @@ class config:
 			# config.ini not found, generate a default one
 			self.generateDefaultConfig()
 			self.default = True
-
 
 	# Check if config.ini has all needed the keys
 	def checkConfig(self):
@@ -53,34 +53,45 @@ class config:
 			self.config.get("redis","database")
 			self.config.get("redis","password")
 
-			self.config.get("server","host")
-			self.config.get("server","port")
+			self.config.get("server", "host")
+			self.config.get("server", "port")
 			self.config.get("server", "debug")
 			self.config.get("server", "beatmapcacheexpire")
 			self.config.get("server", "serverurl")
 			self.config.get("server", "banchourl")
 			self.config.get("server", "threads")
 			self.config.get("server", "apikey")
+			self.config.get("server", "replayspath")
+			self.config.get("server", "beatmapspath")
+			self.config.get("server", "screenshotspath")
 
-			self.config.get("sentry","enable")
-			self.config.get("sentry","dsn")
+			self.config.get("sentry", "enable")
+			self.config.get("sentry", "dsn")
 
 			self.config.get("datadog", "enable")
 			self.config.get("datadog", "apikey")
 			self.config.get("datadog", "appkey")
 
-			self.config.get("osuapi","enable")
-			self.config.get("osuapi","apiurl")
-			self.config.get("osuapi","apikey")
+			self.config.get("osuapi", "enable")
+			self.config.get("osuapi", "apiurl")
+			self.config.get("osuapi", "apikey")
+
+			self.config.get("beatconnect", "enable")
+			self.config.get("beatconnect", "apikey")
 
 			self.config.get("cheesegull", "apiurl")
 
-			self.config.get("discord","enable")
-			self.config.get("discord","boturl")
+			self.config.get("discord", "enable")
+			self.config.get("discord", "boturl")
 			self.config.get("discord", "devgroup")
 			self.config.get("discord", "secretwebhook")
+			self.config.get("discord", "ahook")
+			self.config.get("discord", "score")
+			self.config.get("discord", "rxscore")
 
 			self.config.get("cono", "enable")
+
+			self.config.get("custom", "config")
 			return True
 		except:
 			return False
@@ -116,6 +127,9 @@ class config:
 		self.config.set("server", "banchourl", "http://127.0.0.1:5001")
 		self.config.set("server", "threads", "16")
 		self.config.set("server", "apikey", "changeme")
+		self.config.set("server", "replayspath", ".data/replays")
+		self.config.set("server", "beatmapspath", ".data/beatmaps")
+		self.config.set("server", "screenshotspath", ".data/screenshots")
 
 		self.config.add_section("sentry")
 		self.config.set("sentry", "enable", "False")
@@ -131,17 +145,27 @@ class config:
 		self.config.set("osuapi", "apiurl", "https://osu.ppy.sh")
 		self.config.set("osuapi", "apikey", "YOUR_OSU_API_KEY_HERE")
 
+		self.config.add_section("beatconnect")
+		self.config.set("beatconnect", "enable", "False")
+		self.config.set("beatconnect", "apikey", "")
+
 		self.config.add_section("cheesegull")
-		self.config.set("cheesegull", "apiurl", "http://cheesegu.ll/api")
+		self.config.set("cheesegull", "apiurl", "https://storage.ainu.pw/api")
 
 		self.config.add_section("discord")
 		self.config.set("discord", "enable", "False")
 		self.config.set("discord", "boturl", "")
 		self.config.set("discord", "devgroup", "")
 		self.config.set("discord", "secretwebhook", "")
+		self.config.set("discord", "ahook", "")
+		self.config.set("discord", "score", "")
+		self.config.set("discord", "rxscore", "")
 
 		self.config.add_section("cono")
 		self.config.set("cono", "enable", "False")
+
+		self.config.add_section("custom")
+		self.config.set("custom", "config", "common/config.json")
 
 		# Write ini to file and close
 		self.config.write(f)
